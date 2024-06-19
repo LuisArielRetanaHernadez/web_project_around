@@ -1,5 +1,7 @@
 .profile {
   max-width: 880px;
+  background-color: red;
+  display: flex;
 }
 
 .profile__content-image {
