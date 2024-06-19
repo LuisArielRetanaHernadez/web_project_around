@@ -44,9 +44,10 @@
 }
 
 .profile__button-add-target {
-  padding: 15px 80px;
+  padding: 12px 80px;
   color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 0;
   background-color: transparent;
 }
 
