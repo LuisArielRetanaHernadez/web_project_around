@@ -1,0 +1,9 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__seccion {
+  margin: auto;
+  margin-top: 40px;
+}
