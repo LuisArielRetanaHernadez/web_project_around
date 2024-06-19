@@ -35,9 +35,10 @@
 }
 
 .profile__buton-update-profile {
-  height: max-content;
-  padding: 4px 8px;
+  width: 24px;
+  height: 24px;
   color: #ffffff;
+  text-align: center;
   border: 1px solid #ffffff;
   background-color: transparent;
 }
