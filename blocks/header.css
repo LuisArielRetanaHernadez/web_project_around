@@ -1,9 +1,11 @@
 .header {
+  width: 100%;
   max-width: 880px;
   min-height: 74px;
-  margin: auto;
-  padding-top: 45px;
   box-sizing: border-box;
   border-bottom: 1px solid #ffffff;
-  background-color: #000;
+}
+
+.header__logo {
+  margin-bottom: auto;
 }
