@@ -1,7 +1,6 @@
 .profile {
   width: 100%;
   max-width: 880px;
-  background-color: red;
   display: flex;
   align-items: center;
 }
@@ -22,7 +21,6 @@
 }
 
 .profile__about {
-  background-color: blue;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +36,9 @@
 .profile__buton-update-profile {
   height: max-content;
   padding: 4px 8px;
-  background-color: chartreuse;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
 }
 
 .profile__button-add-target {
