@@ -3,6 +3,7 @@
   max-width: 880px;
   background-color: red;
   display: flex;
+  align-items: center;
 }
 
 .profile__content-image {
