@@ -25,6 +25,10 @@
   font-weight: 500;
 }
 
+.profile__stete {
+  font-size: 18px;
+}
+
 .profile__button-add-target {
   height: max-content;
   margin-left: auto;
