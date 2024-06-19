@@ -5,4 +5,10 @@
   font-size: 16px;
   font-variation-settings: "slnt" 0;
   background-color: #000;
+  display: inline-block;
+}
+
+.page__header {
+  margin: auto;
+  margin-top: 45px;
 }
