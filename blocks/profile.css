@@ -21,5 +21,6 @@
 }
 
 .profile__button-add-target {
+  height: max-content;
   margin-left: auto;
 }
