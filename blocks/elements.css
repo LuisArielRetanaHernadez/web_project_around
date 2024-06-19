@@ -2,3 +2,10 @@
   width: 100%;
   max-width: 880px;
 }
+
+.elements__photos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  grid-auto-rows: 361px;
+}
