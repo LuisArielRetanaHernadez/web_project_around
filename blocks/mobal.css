@@ -32,3 +32,18 @@
   border-radius: 0;
   background-color: #000;
 }
+
+.mobal__icon-close {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: -15%;
+  right: -8%;
+}
+
+.mobal__icon-close-image {
+  object-fit: cover;
+  width: 100%;
+}
