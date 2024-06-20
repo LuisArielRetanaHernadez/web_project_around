@@ -23,6 +23,8 @@
 .photo__about {
   width: 100%;
   height: calc(361px - 282px);
+  padding-left: 21px;
+  padding-right: 15px;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
   background-color: #ffffff;
