@@ -41,13 +41,12 @@
   overflow: hidden;
 }
 
-.photo__button-love {
+.photo__icon-love {
   width: 21px;
   height: 19px;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: none;
   flex-flow: 1;
-}
-
-.photo__button-love-icon {
-  width: max-content;
-  object-fit: cover;
 }
