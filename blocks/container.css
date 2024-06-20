@@ -1,0 +1,11 @@
+.container {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.container_mobal {
+  background-color: #0000002f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
