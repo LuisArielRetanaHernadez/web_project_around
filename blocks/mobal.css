@@ -5,3 +5,9 @@
   background-color: #ffffff;
   position: relative;
 }
+
+.mobal__title {
+  margin-bottom: 54px;
+  font-size: 24px;
+  font-weight: 900;
+}
