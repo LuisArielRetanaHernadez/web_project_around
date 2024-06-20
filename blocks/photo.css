@@ -38,7 +38,9 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.photo__like {
-  height: max-content;
+
+.photo__button-love {
+  width: 19px;
+  height: 21px;
   flex-flow: 1;
 }
