@@ -4,8 +4,12 @@
 }
 
 .container_mobal {
-  background-color: #0000002f;
+  background-color: #00000054;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
