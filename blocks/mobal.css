@@ -11,3 +11,8 @@
   font-size: 24px;
   font-weight: 900;
 }
+
+.mobal__form {
+  display: flex;
+  flex-direction: column;
+}
