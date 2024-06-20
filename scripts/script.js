@@ -7,7 +7,7 @@ const openMobal = (mobalEspicify) => {
   $mobal.classList.add(mobalEspicify ? mobalEspicify : 'active')
 }
 
-const closeMobal = () => {
+const closeMobal = (mobalEspicify) => {
   if (typeof mobalEspicify !== String) {
     return
   }
