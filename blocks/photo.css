@@ -40,7 +40,12 @@
 }
 
 .photo__button-love {
-  width: 19px;
-  height: 21px;
+  width: 21px;
+  height: 19px;
   flex-flow: 1;
+}
+
+.photo__button-love-icon {
+  width: max-content;
+  object-fit: cover;
 }
