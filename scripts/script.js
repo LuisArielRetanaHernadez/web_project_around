@@ -1,15 +1,15 @@
 const $mobal = document.querySelector('.mobal')
 
-const openMobal = (mobalEspicify) => {
-  if (typeof mobalEspicify !== String) {
-    return
+const openMobal = (mobalEspicify = $mobal, className = '') => {
+  if (typeof className !== String || className === '') {
+    returns
   }
-  $mobal.classList.add(mobalEspicify ? mobalEspicify : 'active')
+  mobalEspicify.classList.add(className ? className : 'active')
 }
 
-const closeMobal = (mobalEspicify) => {
-  if (typeof mobalEspicify !== String) {
+const closeMobal = (mobalEspicify = $mobal, className = '') => {
+  if (typeof className !== String) {
     return
   }
-  $mobal.classList.add(mobalEspicify ? mobalEspicify : 'active')
+  mobalEspicify.classList.add(className ? className : 'active')
 }
