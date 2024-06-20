@@ -37,10 +37,15 @@
 .profile__buton-update-profile {
   width: 24px;
   height: 24px;
+  padding: 0;
   color: #ffffff;
   text-align: center;
   border: 1px solid #ffffff;
+  border-radius: 0;
   background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile__button-add-target {
