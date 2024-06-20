@@ -20,6 +20,9 @@
 .mobal__form-input {
   padding: 5px;
   margin-bottom: 30px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid gray;
 }
 
 .mobal__button-submit {
