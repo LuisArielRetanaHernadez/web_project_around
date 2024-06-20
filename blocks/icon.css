@@ -5,6 +5,7 @@
   border: 1px solid #ffffff;
   overflow: hidden;
   background-color: #000;
+  cursor: pointer;
 }
 
 .icon__image {
