@@ -16,3 +16,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.mobal__form-input {
+  padding: 5px;
+  margin-bottom: 30px;
+}
