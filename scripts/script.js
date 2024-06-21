@@ -9,14 +9,14 @@ const openMobal = (className = '', content, title) => {
   }
   $mobal.querySelector('.mobal__title').textContent = title
   $mobal.querySelector('.mobal__content').innerHTML = content
-  $mobal.classList.add(className ? className : 'active')
+  $mobal.classList.add(className ? className : 'mobal--active')
 }
 
 const closeMobal = (className = '') => {
   if (typeof className !== String) {
     return
   }
-  $mobal.classList.add(className ? className : 'active')
+  $mobal.classList.add(className ? className : 'mobal--active')
 }
 
 $btnUpdateProfile.addEventListener('click', () => {
