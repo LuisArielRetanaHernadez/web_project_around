@@ -21,8 +21,8 @@ const closeMobal = (className = '') => {
 $btnUpdateProfile.addEventListener('click', () => {
   const templateContentMobal = `
           <form class="mobal__form" action="">
-            <input class="mobal__form-input" type="text" value='${profileName.textContent}' />
-            <input class="mobal__form-input" type="text" value='${profileState.textContent}'/>
+            <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}' />
+            <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
             <button class="button mobal__button-submit" type="submit">
               Guardar
             </button>
