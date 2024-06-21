@@ -48,6 +48,11 @@
   color: #ffffff;
   border-radius: 0;
   background-color: #000;
+  transition: all 0.1s;
+}
+
+.mobal__button-submit:hover {
+  background-color: #000000c5;
 }
 
 .mobal__icon-close {
