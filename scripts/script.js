@@ -33,3 +33,9 @@ $btnUpdateProfile.addEventListener('click', () => {
 $btnCloseModal.addEventListener('click', () => {
   closeMobal()
 })
+
+$mobal.addEventListener('click', (e) => {
+  if (e.target === $mobal) {
+    closeMobal()
+  }
+})
