@@ -20,10 +20,10 @@ const closeMobal = (className = '') => {
 
 $btnUpdateProfile.addEventListener('click', () => {
   const templateContentMobal = `
-          <form class="mobal__form" action="">
+          <form class="mobal__form" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}' />
             <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
-            <button class="button mobal__button-submit" type="submit">
+            <button class="button mobal__button-submit" id="button-update-profile" type=submit">
               Guardar
             </button>
           </form>
@@ -45,7 +45,7 @@ $mobal.addEventListener('click', (e) => {
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
 
-  const form = document.querySelector('.mobal__form')
+  const form = document.querySelector('#form-update-profile')
   const inputs = form.querySelectorAll('input')
 
   profileName.textContent = inputs[0].value
@@ -53,3 +53,12 @@ const heandleUpdateProfile = (e) => {
 
   closeMobal()
 }
+
+document.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  // update profile
+  if (e.target.id === 'form-update-profile') {
+    heandleUpdateProfile(e)
+  }
+})
