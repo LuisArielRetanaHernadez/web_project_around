@@ -45,7 +45,7 @@ $mobal.addEventListener('click', (e) => {
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
 
-  const form = e.target
+  const form = document.querySelector('.mobal__form')
   const inputs = form.querySelectorAll('input')
 
   profileName.textContent = inputs[0].value
