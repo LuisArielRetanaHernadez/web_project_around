@@ -4,9 +4,7 @@ const $btnUpdateProfile = document.querySelector('.profile__buton-update-profile
 const $btnCloseModal = document.querySelector('.mobal__icon-close')
 
 const openMobal = (className = '', content, title) => {
-  if (typeof className !== String || className === '') {
-    returns
-  }
+
   $mobal.querySelector('.mobal__title').textContent = title
   $mobal.querySelector('.mobal__content').innerHTML = content
   $mobal.classList.add(className ? className : 'mobal--active')
@@ -30,5 +28,5 @@ $btnUpdateProfile.addEventListener('click', () => {
           </form>
   `
 
-  openMobal(_, templateContentMobal, 'Editar Perfil')
+  openMobal('', templateContentMobal, 'Editar Perfil')
 })
