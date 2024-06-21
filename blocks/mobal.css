@@ -20,6 +20,7 @@
   padding: 34px 35px;
   border-radius: 10px;
   background-color: #ffffff;
+  position: relative;
 }
 
 .mobal__title {
