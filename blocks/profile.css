@@ -52,6 +52,30 @@
   border-color: #686d76;
 }
 
+.profile__button-update-profile-image {
+  width: 10px;
+  height: 10px;
+  object-fit: cover;
+}
+
+.profile__button-update-profile-image_hidden-hover {
+  display: none;
+}
+
+.profile__button-update-profile:hover
+  .profile__button-update-profile-image_hidden-hover {
+  display: inline-block;
+}
+
+.profile__button-update-profile-image_show-hover {
+  display: inline-block;
+}
+
+.profile__button-update-profile:hover
+  .profile__button-update-profile-image_show-hover {
+  display: none;
+}
+
 .profile__button-add-target {
   padding: 12px 80px;
   color: #ffffff;
@@ -65,12 +89,6 @@
   border-color: #686d76;
   color: #686d76;
   fill: #686d76;
-}
-
-.profile__button-update-profile-image {
-  width: 10px;
-  height: 10px;
-  object-fit: cover;
 }
 
 .profile__button-add-target-image {
