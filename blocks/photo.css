@@ -73,3 +73,11 @@
 .photo__icon-love:active .photo__icon-love-image_active {
   display: inline-block;
 }
+
+/* ........ media query max-width 950px ......... */
+
+@media screen and (max-width: 950px) {
+  .photo__title {
+    font-size: 20px;
+  }
+}
