@@ -26,6 +26,14 @@
   justify-content: center;
   color: #ffffff;
 }
+.profile__name {
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.profile__stete {
+  font-size: 18px;
+}
 
 .profile__content-username-button {
   display: flex;
@@ -96,16 +104,18 @@
   height: 22px;
 }
 
-.profile__name {
-  font-size: 42px;
-  font-weight: 500;
-}
-
-.profile__stete {
-  font-size: 18px;
-}
-
 .profile__button-add-target {
   height: max-content;
   margin-left: auto;
+}
+
+/* ........ media query max-width 950px ......... */
+
+@media screen and (max-width: 950px) {
+  .profile__name {
+    font-size: 38px;
+  }
+  .profile__stete {
+    font-size: 16px;
+  }
 }
