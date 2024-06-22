@@ -48,6 +48,10 @@
   justify-content: center;
 }
 
+.profile__button-update-profile:hover {
+  border-color: #686d76;
+}
+
 .profile__button-add-target {
   padding: 12px 80px;
   color: #ffffff;
