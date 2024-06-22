@@ -60,10 +60,17 @@
   background-color: transparent;
   transition: all 0.1s;
 }
+
 .profile__button-add-target:hover {
   border-color: #686d76;
   color: #686d76;
   fill: #686d76;
+}
+
+.profile__button-update-profile-image {
+  width: 10px;
+  height: 10px;
+  object-fit: cover;
 }
 
 .profile__button-add-target-image {
