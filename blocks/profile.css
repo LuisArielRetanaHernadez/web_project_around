@@ -111,6 +111,15 @@
 
 /* ........ media query max-width 950px ......... */
 
+@media screen and (max-width: 950px) {
+  .profile {
+    width: auto;
+    max-width: 880px;
+  }
+}
+
+/* ........ media query max-width 800px ......... */
+
 @media screen and (max-width: 800px) {
   .profile__name {
     font-size: 38px;
