@@ -8,10 +8,13 @@
   display: inline-block;
 }
 
-.page__footer,
 .page__header {
   margin: auto;
   margin-top: 45px;
+}
+
+.page__footer {
+  margin: 67px auto 60px;
 }
 
 /* ........ media query max-width 950px ......... */
