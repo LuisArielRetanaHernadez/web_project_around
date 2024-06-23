@@ -9,3 +9,9 @@
 .header__logo {
   margin-bottom: auto;
 }
+
+@media screen and (max-width: 950px) {
+  .header {
+    width: auto;
+  }
+}
