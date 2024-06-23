@@ -1,11 +1,10 @@
 .footer {
   width: 100%;
   max-width: 880px;
-  margin-top: 40px;
   display: flex;
 }
 
 .footer__author {
   margin-right: auto;
-  color: #ffffff;
+  color: #545454;
 }
