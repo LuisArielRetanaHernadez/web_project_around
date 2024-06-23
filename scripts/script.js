@@ -51,6 +51,12 @@ const heandleUpdateProfile = (e) => {
   profileName.textContent = inputs[0].value
   profileState.textContent = inputs[1].value
 
+  setLocalStorage('profile', {
+    name: inputs[0].value,
+    state: inputs[1].value
+  })
+
+  // close modal
   closeMobal()
 }
 
