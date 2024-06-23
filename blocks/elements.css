@@ -42,3 +42,14 @@
     grid-template-columns: repeat(2, 235px);
   }
 }
+
+/* ........ media query max-width 545px ......... */
+
+@media screen and (max-width: 545px) {
+  .elements {
+    width: auto;
+  }
+  .elements__photos {
+    grid-template-columns: repeat(1, 282px);
+  }
+}
