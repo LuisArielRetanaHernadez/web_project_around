@@ -84,6 +84,19 @@
 /* ........ media query max-width 545px ......... */
 
 @media screen and (max-width: 545px) {
+  .mobal__card {
+    margin: 0 20px;
+  }
+
+  .mobal__title {
+    font-size: 18px;
+  }
+
+  .mobal__button-submit,
+  .mobal__form-input {
+    font-size: 14px;
+  }
+
   .mobal__icon-close {
     width: 26px;
     height: 26px;
