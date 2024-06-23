@@ -154,6 +154,14 @@
 /* ........ media query max-width 300px ......... */
 
 @media screen and (max-width: 300px) {
+  .profile__name {
+    font-size: 22px;
+  }
+
+  .profile__stete {
+    font-size: 14px;
+  }
+
   .profile__button-add-target {
     width: 100%;
   }
