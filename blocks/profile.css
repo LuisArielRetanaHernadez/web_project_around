@@ -128,3 +128,15 @@
     font-size: 16px;
   }
 }
+
+/* ........ media query max-width 645px ......... */
+
+@media screen and (max-width: 645px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__button-add-target {
+    margin: 0;
+  }
+}
