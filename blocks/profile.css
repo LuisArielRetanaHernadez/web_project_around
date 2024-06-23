@@ -136,6 +136,16 @@
     flex-direction: column;
   }
 
+  .profile__content-image {
+    margin-bottom: 30px;
+  }
+
+  .profile__about {
+    margin-bottom: 36px;
+    text-align: center;
+    gap: 14px 0;
+  }
+
   .profile__button-add-target {
     margin: 0;
   }
