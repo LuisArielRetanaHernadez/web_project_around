@@ -7,6 +7,7 @@
 .footer__author {
   margin-right: auto;
   color: #545454;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 950px) {
