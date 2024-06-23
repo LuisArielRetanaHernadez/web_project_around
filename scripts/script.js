@@ -70,6 +70,7 @@ document.addEventListener('submit', (e) => {
 })
 
 
+
 const setLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value))
 }
@@ -77,3 +78,21 @@ const setLocalStorage = (key, value) => {
 const getLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key))
 }
+
+const loeadProfile = () => {
+  const profile = getLocalStorage('profile')
+  if (profile) {
+    profileName.textContent = profile.name
+    profileState.textContent = profile.state
+  } else {
+    profileName.textContent = 'Nombre'
+    profileState.textContent = 'Estado'
+
+  }
+}
+
+const loadLocalStorage = () => {
+  loeadProfile()
+}
+
+loadLocalStorage()
