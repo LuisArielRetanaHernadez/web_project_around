@@ -150,3 +150,11 @@
     margin: 0;
   }
 }
+
+/* ........ media query max-width 300px ......... */
+
+@media screen and (max-width: 300px) {
+  .profile__button-add-target {
+    width: 100%;
+  }
+}
