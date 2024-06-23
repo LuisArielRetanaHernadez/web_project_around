@@ -8,6 +8,7 @@
   display: inline-block;
 }
 
+.page__footer,
 .page__header {
   margin: auto;
   margin-top: 45px;
@@ -17,8 +18,12 @@
 
 @media screen and (max-width: 950px) {
   .page__header {
-    margin: 0 20px;
-    margin-top: 45px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .page__footer {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
