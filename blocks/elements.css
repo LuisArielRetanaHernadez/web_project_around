@@ -26,6 +26,9 @@
 /* ........ media query max-width 950px ......... */
 
 @media screen and (max-width: 950px) {
+  .elements {
+    width: auto;
+  }
   .elements__photos {
     grid-template-columns: repeat(2, 282px);
     justify-content: center;
