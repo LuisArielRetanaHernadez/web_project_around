@@ -80,3 +80,14 @@
     right: 0%;
   }
 }
+
+/* ........ media query max-width 545px ......... */
+
+@media screen and (max-width: 545px) {
+  .mobal__icon-close {
+    width: 26px;
+    height: 26px;
+    top: -15%;
+    right: 0%;
+  }
+}
