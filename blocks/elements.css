@@ -40,7 +40,5 @@
 @media screen and (max-width: 645px) {
   .elements__photos {
     grid-template-columns: repeat(2, 235px);
-    justify-content: center;
-    gap: 15px;
   }
 }
