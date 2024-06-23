@@ -10,6 +10,6 @@
 
 @media screen and (max-width: 950px) {
   .content__seccion {
-    padding: 0 20px;
+    margin: 40px 20px 0px;
   }
 }
