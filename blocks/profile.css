@@ -31,7 +31,7 @@
   font-weight: 500;
 }
 
-.profile__stete {
+.profile__state {
   font-size: 18px;
 }
 
@@ -158,7 +158,7 @@
     font-size: 22px;
   }
 
-  .profile__stete {
+  .profile__state {
     font-size: 14px;
   }
 
