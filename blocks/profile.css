@@ -85,6 +85,8 @@
 }
 
 .profile__button-add-target {
+  height: max-content;
+  margin-left: auto;
   padding: 12px 80px;
   color: #ffffff;
   border: 2px solid #ffffff;
@@ -102,10 +104,6 @@
 .profile__button-add-target-image {
   width: 22px;
   height: 22px;
-}
-
-.profile__button-add-target {
-  margin-left: auto;
 }
 
 /* ........ media query max-width 950px ......... */
