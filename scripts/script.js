@@ -19,13 +19,13 @@ const mobalFormAddCard = () => {
             </button>
           </form>
   `
-  openMobal('', formAddCard, title)
 }
 
 const genereteMobal = (className = '', content, title) => {
   const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
   $mobal.querySelector('.mobal__title').textContent = title
   $mobal.querySelector('.mobal__content').innerHTML = content
+  return $mobal
 }
 
 const openMobal = (content, title) => {
