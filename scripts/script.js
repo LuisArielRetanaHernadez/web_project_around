@@ -28,6 +28,11 @@ const genereteMobal = (className = '', content, title) => {
   $mobal.querySelector('.mobal__content').innerHTML = content
 }
 
+const openMobal = (content, title) => {
+  const $mobal = genereteMobal(className, content, title)
+  $mobal.classList.add(className ? className : 'mobal--active')
+}
+
 const closeMobal = (className = '') => {
 
   $mobal.classList.remove(className ? className : 'mobal--active')
