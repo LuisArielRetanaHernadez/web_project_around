@@ -6,6 +6,8 @@ const $btnUpdateProfile = document.querySelector('.profile__button-update-profil
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
+const $templateMobal = document.querySelector('#tamplate-mobal')
+
 const openMobal = (className = '', content, title) => {
 
   $mobal.querySelector('.mobal__title').textContent = title
