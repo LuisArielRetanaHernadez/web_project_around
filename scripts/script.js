@@ -8,6 +8,21 @@ const profileState = document.querySelector('.profile__state')
 
 const $templateMobal = document.querySelector('#tamplate-mobal')
 
+const mobalFormAddCard = () => {
+  const $mobal = $templateMobal.content
+  $mobal.querySelector('.mobal__title').textContent = 'New Places'
+  const formAddCard = `
+          <form class="mobal__form" id="form-update-profile" action="">
+            <input class="mobal__form-input" id="input-profile-name" type=text" value='Title' />
+            <input class="mobal__form-input" id="input-profile-url-image" type="url" value='URL'/>
+            <button class="button mobal__button-submit" id="button-update-profile" type=submit">
+              Guardar
+            </button>
+          </form>
+  `
+  $mobal.querySelector('.mobal__content').innerHTML = formAddCard
+}
+
 const openMobal = (className = '', content, title) => {
 
   $mobal.querySelector('.mobal__title').textContent = title
