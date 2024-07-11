@@ -9,7 +9,10 @@ const profileState = document.querySelector('.profile__state')
 const $templateMobal = document.querySelector('#tamplate-mobal')
 
 const mobalFormAddCard = () => {
+  const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
+  $mobal.setAttribute('id', 'mobal-add-card')
   const title = 'Agrega una tarjeta'
+  $mobal.querySelector('.mobal__title').textContent = title
   const formAddCard = `
           <form class="mobal__form" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='Title' />
@@ -19,6 +22,8 @@ const mobalFormAddCard = () => {
             </button>
           </form>
   `
+  $mobal.querySelector('.mobal__content').innerHTML = formAddCard
+  return $mobal
 }
 
 const genereteMobal = (className = '', content, title) => {
