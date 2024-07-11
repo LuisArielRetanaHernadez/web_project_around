@@ -1,12 +1,12 @@
 const $btnCloseModal = document.querySelector('.mobal__icon-close')
 
 const $btnUpdateProfile = document.querySelector('.profile__button-update-profile')
-const $btnAddCard = document.querySelector('.profile__button-add-card')
+const $btnModalAddCard = document.querySelector('.profile__button-add-target')
 
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
-const $templateMobal = document.querySelector('#tamplate-mobal')
+const $templateMobal = document.querySelector('#template-mobal')
 
 const mobalFormAddCard = () => {
   const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
@@ -25,6 +25,13 @@ const mobalFormAddCard = () => {
   $mobal.querySelector('.mobal__content').innerHTML = formAddCard
   return $mobal
 }
+
+$btnModalAddCard.addEventListener('click', () => {
+  const $mobal = mobalFormAddCard()
+  console.log('mobal ', $mobal)
+  $mobal.classList.add('mobal--active')
+  document.querySelector('.page').appendChild($mobal)
+})
 
 const genereteMobal = (className = '', content, title) => {
   const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
