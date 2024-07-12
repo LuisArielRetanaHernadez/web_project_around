@@ -38,6 +38,13 @@ const mobalUpadteProfile = () => {
   genereteMobal('', formAddCard, title)
 }
 
+const genereteMobal = (className = '', content, title) => {
+  const $peronalizeMobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
+  $peronalizeMobal.querySelector('.mobal__title').textContent = title
+  $peronalizeMobal.querySelector('.mobal__content').innerHTML = content
+  $mobal = $peronalizeMobal
+}
+
 $btnModalAddCard.addEventListener('click', () => {
   mobalFormAddCard()
   console.log('mobal ', $mobal)
@@ -45,12 +52,11 @@ $btnModalAddCard.addEventListener('click', () => {
   document.querySelector('.page').appendChild($mobal)
 })
 
-const genereteMobal = (className = '', content, title) => {
-  const $peronalizeMobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
-  $peronalizeMobal.querySelector('.mobal__title').textContent = title
-  $peronalizeMobal.querySelector('.mobal__content').innerHTML = content
-  $mobal = $peronalizeMobal
-}
+$btnUpdateProfile.addEventListener('click', () => {
+  mobalUpadteProfile()
+  $mobal.classList.add('mobal--active')
+  document.querySelector('.page').appendChild($mobal)
+})
 
 const openMobal = (content, title) => {
   if ($mobal) return
@@ -62,13 +68,6 @@ const closeMobal = (className = '') => {
   $mobal.classList.remove(className ? className : 'mobal--active')
   document.querySelector('.page').removeChild($mobal)
 }
-
-$btnUpdateProfile.addEventListener('click', () => {
-  mobalUpadteProfile()
-  $mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild($mobal)
-})
-
 
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
