@@ -59,7 +59,6 @@ const openMobal = (content, title) => {
 }
 
 const closeMobal = (className = '') => {
-  const $mobal = document.querySelector('.mobal')
   $mobal.classList.remove(className ? className : 'mobal--active')
   document.querySelector('.page').removeChild($mobal)
 }
@@ -70,15 +69,6 @@ $btnUpdateProfile.addEventListener('click', () => {
   document.querySelector('.page').appendChild($mobal)
 })
 
-$btnCloseModal.addEventListener('click', () => {
-  closeMobal()
-})
-
-document.querySelector('.mobal').addEventListener('click', (e) => {
-  if (e.target === $mobal) {
-    closeMobal()
-  }
-})
 
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
@@ -107,6 +97,24 @@ document.addEventListener('submit', (e) => {
   }
 })
 
+// crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+
+    if (mutation.type === 'childList') {
+
+      $mobal?.addEventListener('click', (e) => {
+        if (e.target === $mobal) {
+          closeMobal()
+        }
+      })
+      $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
+        closeMobal()
+      })
+    }
+  })
+})
+observer.observe(document.querySelector('.page'), { childList: true })
 
 
 const setLocalStorage = (key, value) => {
