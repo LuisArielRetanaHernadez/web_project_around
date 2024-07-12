@@ -158,6 +158,13 @@ const loadCards = () => {
   })
 }
 
+const poppaImage = (image) => {
+  const $templatePoppa = document.querySelector('#template-poppa')
+  const $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
+  $poppa.querySelector('.poppa__image').setAttribute('src', image)
+  document.querySelector('.page').appendChild($poppa)
+}
+
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
