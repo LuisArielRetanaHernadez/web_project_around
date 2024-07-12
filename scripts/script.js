@@ -148,6 +148,16 @@ document.addEventListener('submit', (e) => {
   }
 })
 
+const loadCards = () => {
+  initialPhotos.forEach((photo) => {
+    const $templatePhoto = document.querySelector('#template-photo')
+    const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
+    $photo.querySelector('.photo__title').textContent = photo.name
+    $photo.querySelector('.photo__image').setAttribute('src', photo.link)
+    $photos.appendChild($photo)
+  })
+}
+
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
@@ -189,6 +199,7 @@ const loeadProfile = () => {
 }
 
 const loadLocalStorage = () => {
+  loadCards()
   loeadProfile()
 }
 
