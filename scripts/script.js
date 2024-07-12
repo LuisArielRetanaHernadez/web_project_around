@@ -8,7 +8,7 @@ const profileState = document.querySelector('.profile__state')
 
 const $templateMobal = document.querySelector('#template-mobal')
 
-const $cards = document.querySelector('.elements__photos')
+const $photos = document.querySelector('.elements__photos')
 
 let $mobal = null
 
@@ -96,13 +96,13 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const $templatePhoto = document.querySelector('#template-card')
+  const $templatePhoto = document.querySelector('#template-photo')
   const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
   $photo.querySelector('.photo__title').textContent = title
   $photo.querySelector('.photo__image').setAttribute('src', url)
 
   // agregar la nueva card al principio del contenedor cards
-  $cards.prepend($photo)
+  $photos.prepend($photo)
 
   closeMobal()
 }
