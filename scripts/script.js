@@ -127,7 +127,9 @@ const handleAddNewCard = (e) => {
   const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
   $photo.querySelector('.photo__title').textContent = title
   $photo.querySelector('.photo__image').setAttribute('src', url)
-
+  $photo.querySelector('.photo__image').addEventListener('click', () => {
+    poppaImage(url)
+  })
   // agregar la nueva card al principio del contenedor cards
   $photos.prepend($photo)
 
@@ -154,6 +156,9 @@ const loadCards = () => {
     const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
     $photo.querySelector('.photo__title').textContent = photo.name
     $photo.querySelector('.photo__image').setAttribute('src', photo.link)
+    $photo.querySelector('.photo__image').addEventListener('click', () => {
+      poppaImage(photo.link)
+    })
     $photos.appendChild($photo)
   })
 }
