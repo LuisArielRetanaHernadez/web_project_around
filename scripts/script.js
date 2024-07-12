@@ -94,6 +94,11 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
+  const $templatePhoto = document.querySelector('#template-photo')
+  const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
+  $photo.querySelector('.photo__title').textContent = title
+  $photo.querySelector('.photo__image').setAttribute('src', url)
+
 
   closeMobal
 }
