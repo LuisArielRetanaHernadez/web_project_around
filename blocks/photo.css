@@ -90,8 +90,13 @@
   padding: 0;
   width: 20px;
   font-size: 20px;
+  display: none;
   background-color: transparent;
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.photo:hover .photo__icon-delete {
+  display: inline-block;
 }
