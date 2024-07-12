@@ -2,6 +2,7 @@ const $btnCloseModal = document.querySelector('.mobal__icon-close')
 
 const $btnUpdateProfile = document.querySelector('.profile__button-update-profile')
 const $btnModalAddCard = document.querySelector('.profile__button-add-target')
+const $btnDeleteCard = document.querySelectorAll('.photo__button-delete')
 
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
@@ -183,6 +184,10 @@ const openPoppa = () => {
 const closePoppa = () => {
   $poppa.classList.remove('poppa--active')
   document.querySelector('.page').removeChild($poppa)
+}
+
+const deletePhoto = (photo) => {
+  photo.remove()
 }
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
