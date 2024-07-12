@@ -39,7 +39,7 @@ const mobalUpadteProfile = () => {
 }
 
 $btnModalAddCard.addEventListener('click', () => {
-  const $mobal = mobalFormAddCard()
+  mobalFormAddCard()
   console.log('mobal ', $mobal)
   $mobal.classList.add('mobal--active')
   document.querySelector('.page').appendChild($mobal)
@@ -49,7 +49,7 @@ const genereteMobal = (className = '', content, title) => {
   const $peronalizeMobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
   $peronalizeMobal.querySelector('.mobal__title').textContent = title
   $peronalizeMobal.querySelector('.mobal__content').innerHTML = content
-  $poppel = $peronalizeMobal
+  $mobal = $peronalizeMobal
 }
 
 const openMobal = (content, title) => {
@@ -65,7 +65,7 @@ const closeMobal = (className = '') => {
 }
 
 $btnUpdateProfile.addEventListener('click', () => {
-  const $mobal = mobalUpadteProfile()
+  mobalUpadteProfile()
   $mobal.classList.add('mobal--active')
   document.querySelector('.page').appendChild($mobal)
 })
