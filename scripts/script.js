@@ -34,6 +34,7 @@ const mobalFormAddCard = () => {
   })
   return $mobal
 }
+
 const mobalUpadteProfile = () => {
   const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
   $mobal.setAttribute('id', 'mobal-update-profile')
