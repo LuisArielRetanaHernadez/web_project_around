@@ -61,17 +61,9 @@ const closeMobal = (className = '') => {
 }
 
 $btnUpdateProfile.addEventListener('click', () => {
-  const templateContentMobal = `
-          <form class="mobal__form" id="form-update-profile" action="">
-            <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}' />
-            <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
-            <button class="button mobal__button-submit" id="button-update-profile" type=submit">
-              Guardar
-            </button>
-          </form>
-  `
-
-  openMobal('', templateContentMobal, 'Editar Perfil')
+  const $mobal = mobalUpadteProfile()
+  $mobal.classList.add('mobal--active')
+  document.querySelector('.page').appendChild($mobal)
 })
 
 $btnCloseModal.addEventListener('click', () => {
