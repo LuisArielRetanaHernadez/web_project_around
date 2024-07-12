@@ -26,3 +26,22 @@
   object-fit: cover;
   object-position: center;
 }
+
+/* .... button close .... */
+
+.poppa__icon-close {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+
+.poppa__icon-close-image {
+  background-color: transparent;
+  object-fit: cover;
+  width: 100%;
+}
