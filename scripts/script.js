@@ -133,6 +133,11 @@ const handleAddNewCard = (e) => {
   $photo.querySelector('.photo__image').addEventListener('click', () => {
     poppaImage(url)
   })
+  $photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
+    deletePhoto($photo)
+  })
+
+  // close modal
   // agregar la nueva card al principio del contenedor cards
   $photos.prepend($photo)
 
@@ -161,6 +166,9 @@ const loadCards = () => {
     $photo.querySelector('.photo__image').setAttribute('src', photo.link)
     $photo.querySelector('.photo__image').addEventListener('click', () => {
       poppaImage(photo.link)
+    })
+    $photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
+      deletePhoto($photo)
     })
     $photos.appendChild($photo)
   })
