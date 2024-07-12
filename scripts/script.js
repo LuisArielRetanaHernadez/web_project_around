@@ -96,11 +96,13 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const $templatePhoto = document.querySelector('#template-photo')
+  const $templatePhoto = document.querySelector('#template-card')
   const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
   $photo.querySelector('.photo__title').textContent = title
   $photo.querySelector('.photo__image').setAttribute('src', url)
 
+  // agregar la nueva card al principio del contenedor cards
+  $cards.prepend($photo)
 
   closeMobal
 }
@@ -111,6 +113,11 @@ document.addEventListener('submit', (e) => {
   // update profile
   if (e.target.id === 'form-update-profile') {
     heandleUpdateProfile(e)
+  }
+
+  // add new card
+  if (e.target.id === 'form-add-card') {
+    handleAddNewCard(e)
   }
 })
 
