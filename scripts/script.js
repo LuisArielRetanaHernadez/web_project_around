@@ -181,7 +181,7 @@ const observer = new MutationObserver((mutations) => {
           closeMobal()
         }
       })
-      $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
+      $mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
         closeMobal()
       })
     }
