@@ -11,6 +11,10 @@
   z-index: 10;
 }
 
+.poppa--active {
+  display: flex;
+}
+
 .poppa__content-image {
   width: 75vw;
   height: 75vh;
