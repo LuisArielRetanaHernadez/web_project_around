@@ -199,6 +199,11 @@ const observer = new MutationObserver((mutations) => {
       $mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
         closeMobal()
       })
+      $poppa?.addEventListener('click', (e) => {
+        if (e.target === $poppa) {
+          closePoppa()
+        }
+      })
     }
   })
 })
