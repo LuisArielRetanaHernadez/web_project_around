@@ -168,6 +168,9 @@ const loadCards = () => {
 const poppaImage = (image) => {
   $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
   $poppa.querySelector('.poppa__image').setAttribute('src', image)
+  $poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
+    closePoppa()
+  })
   document.querySelector('.page').appendChild($poppa)
   openPoppa()
 }
