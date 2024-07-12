@@ -87,6 +87,17 @@ const heandleUpdateProfile = (e) => {
   closeMobal()
 }
 
+const handleAddNewCard = (e) => {
+  e.preventDefault()
+  const form = document.querySelector('#form-add-card')
+  const inputs = form.querySelectorAll('input')
+  const title = inputs[0].value
+  const url = inputs[1].value
+
+
+  closeMobal
+}
+
 document.addEventListener('submit', (e) => {
   e.preventDefault()
 
