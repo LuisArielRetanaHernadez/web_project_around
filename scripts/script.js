@@ -43,8 +43,8 @@ const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
           <form class="mobal__form" id="form-add-card" action="">
-            <input class="mobal__form-input" id="input-profile-name" type=text" value='Title' />
-            <input class="mobal__form-input" id="input-profile-url-image" type="url" value='URL'/>
+            <input class="mobal__form-input" id="input-profile-name" type=text" placeholder='title' />
+            <input class="mobal__form-input" id="input-profile-url-image" type="url" placeholder='url' />
             <button class="button mobal__button-submit" id="button-update-profile" type=submit">
               Guardar
             </button>
