@@ -104,7 +104,7 @@ const handleAddNewCard = (e) => {
   // agregar la nueva card al principio del contenedor cards
   $cards.prepend($photo)
 
-  closeMobal
+  closeMobal()
 }
 
 document.addEventListener('submit', (e) => {
