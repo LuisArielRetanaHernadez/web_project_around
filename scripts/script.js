@@ -53,7 +53,8 @@ const genereteMobal = (className = '', content, title) => {
 }
 
 const openMobal = (content, title) => {
-  const $mobal = genereteMobal(className, content, title)
+  if ($mobal) return
+  $mobal = genereteMobal(className, content, title)
   $mobal.classList.add(className ? className : 'mobal--active')
 }
 
