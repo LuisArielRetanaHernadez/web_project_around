@@ -23,6 +23,15 @@ const mobalFormAddCard = () => {
           </form>
   `
   $mobal.querySelector('.mobal__content').innerHTML = formAddCard
+
+  $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
+    closeMobal()
+  })
+  $mobal.addEventListener('click', (e) => {
+    if (e.target === $mobal) {
+      closeMobal()
+    }
+  })
   return $mobal
 }
 
@@ -46,8 +55,9 @@ const openMobal = (content, title) => {
 }
 
 const closeMobal = (className = '') => {
-
+  const $mobal = document.querySelector('.mobal')
   $mobal.classList.remove(className ? className : 'mobal--active')
+  document.querySelector('.page').removeChild($mobal)
 }
 
 $btnUpdateProfile.addEventListener('click', () => {
@@ -68,7 +78,7 @@ $btnCloseModal.addEventListener('click', () => {
   closeMobal()
 })
 
-$mobal.addEventListener('click', (e) => {
+document.querySelector('.mobal').addEventListener('click', (e) => {
   if (e.target === $mobal) {
     closeMobal()
   }
