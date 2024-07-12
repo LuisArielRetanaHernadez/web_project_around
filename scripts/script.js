@@ -8,6 +8,8 @@ const profileState = document.querySelector('.profile__state')
 
 const $templateMobal = document.querySelector('#template-mobal')
 
+const $cards = document.querySelector('.elements__photos')
+
 let $mobal = null
 
 const mobalFormAddCard = () => {
