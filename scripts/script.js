@@ -177,6 +177,11 @@ const openPoppa = () => {
   $poppa.classList.add('poppa--active')
 }
 
+const closePoppa = () => {
+  $poppa.classList.remove('poppa--active')
+  document.querySelector('.page').removeChild($poppa)
+}
+
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
