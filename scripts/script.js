@@ -8,11 +8,10 @@ const profileState = document.querySelector('.profile__state')
 
 const $templateMobal = document.querySelector('#template-mobal')
 
+let $mobal = null
+
 const mobalFormAddCard = () => {
-  const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
-  $mobal.setAttribute('id', 'mobal-add-card')
   const title = 'Agrega una tarjeta'
-  $mobal.querySelector('.mobal__title').textContent = title
   const formAddCard = `
           <form class="mobal__form" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='Title' />
@@ -22,24 +21,11 @@ const mobalFormAddCard = () => {
             </button>
           </form>
   `
-  $mobal.querySelector('.mobal__content').innerHTML = formAddCard
-
-  $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
-    closeMobal()
-  })
-  $mobal.addEventListener('click', (e) => {
-    if (e.target === $mobal) {
-      closeMobal()
-    }
-  })
-  return $mobal
+  genereteMobal('', formAddCard, title)
 }
 
 const mobalUpadteProfile = () => {
-  const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
-  $mobal.setAttribute('id', 'mobal-update-profile')
   const title = 'Actualiza tu perfil'
-  $mobal.querySelector('.mobal__title').textContent = title
   const formAddCard = `
           <form class="mobal__form" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}'/>
@@ -49,17 +35,7 @@ const mobalUpadteProfile = () => {
             </button>
           </form>
   `
-  $mobal.querySelector('.mobal__content').innerHTML = formAddCard
-
-  $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
-    closeMobal()
-  })
-  $mobal.addEventListener('click', (e) => {
-    if (e.target === $mobal) {
-      closeMobal()
-    }
-  })
-  return $mobal
+  genereteMobal('', formAddCard, title)
 }
 
 $btnModalAddCard.addEventListener('click', () => {
@@ -70,10 +46,10 @@ $btnModalAddCard.addEventListener('click', () => {
 })
 
 const genereteMobal = (className = '', content, title) => {
-  const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
-  $mobal.querySelector('.mobal__title').textContent = title
-  $mobal.querySelector('.mobal__content').innerHTML = content
-  return $mobal
+  const $peronalizeMobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
+  $peronalizeMobal.querySelector('.mobal__title').textContent = title
+  $peronalizeMobal.querySelector('.mobal__content').innerHTML = content
+  $poppel = $peronalizeMobal
 }
 
 const openMobal = (content, title) => {
