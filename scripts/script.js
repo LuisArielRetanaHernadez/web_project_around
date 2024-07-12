@@ -34,6 +34,32 @@ const mobalFormAddCard = () => {
   })
   return $mobal
 }
+const mobalUpadteProfile = () => {
+  const $mobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
+  $mobal.setAttribute('id', 'mobal-update-profile')
+  const title = 'Actualiza tu perfil'
+  $mobal.querySelector('.mobal__title').textContent = title
+  const formAddCard = `
+          <form class="mobal__form" id="form-update-profile" action="">
+            <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}'/>
+            <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
+            <button class="button mobal__button-submit" id="button-update-profile" type=submit">
+              Guardar
+            </button>
+          </form>
+  `
+  $mobal.querySelector('.mobal__content').innerHTML = formAddCard
+
+  $mobal.querySelector('.mobal__icon-close').addEventListener('click', () => {
+    closeMobal()
+  })
+  $mobal.addEventListener('click', (e) => {
+    if (e.target === $mobal) {
+      closeMobal()
+    }
+  })
+  return $mobal
+}
 
 $btnModalAddCard.addEventListener('click', () => {
   const $mobal = mobalFormAddCard()
