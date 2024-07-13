@@ -119,13 +119,7 @@ const heandleUpdateProfile = (e) => {
   closeMobal()
 }
 
-const handleAddNewCard = (e) => {
-  e.preventDefault()
-  const form = document.querySelector('#form-add-card')
-  const inputs = form.querySelectorAll('input')
-  const title = inputs[0].value
-  const url = inputs[1].value
-
+const templateCard = (title, url) => {
   const $templatePhoto = document.querySelector('#template-photo')
   const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
   $photo.querySelector('.photo__title').textContent = title
@@ -136,9 +130,18 @@ const handleAddNewCard = (e) => {
   $photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
     deletePhoto($photo)
   })
+  return $photo
+}
 
-  // close modal
-  // agregar la nueva card al principio del contenedor cards
+const handleAddNewCard = (e) => {
+  e.preventDefault()
+  const form = document.querySelector('#form-add-card')
+  const inputs = form.querySelectorAll('input')
+  const title = inputs[0].value
+  const url = inputs[1].value
+
+  const $photo = templateCard(title, url)
+
   $photos.prepend($photo)
 
   closeMobal()
@@ -160,19 +163,12 @@ document.addEventListener('submit', (e) => {
 
 const loadCards = () => {
   initialPhotos.forEach((photo) => {
-    const $templatePhoto = document.querySelector('#template-photo')
-    const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
-    $photo.querySelector('.photo__title').textContent = photo.name
-    $photo.querySelector('.photo__image').setAttribute('src', photo.link)
-    $photo.querySelector('.photo__image').addEventListener('click', () => {
-      poppaImage(photo.link)
-    })
-    $photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
-      deletePhoto($photo)
-    })
+    const $photo = templateCard(photo.name, photo.link)
     $photos.appendChild($photo)
   })
 }
+
+
 
 const poppaImage = (image) => {
   $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
