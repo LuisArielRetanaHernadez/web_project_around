@@ -41,7 +41,7 @@ const initialPhotos = [
     link: 'https://images.pexels.com/photos/485294/pexels-photo-485294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ]
-
+// el genere el formulario para que cotenido del mobal sea dinamico
 const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
@@ -58,7 +58,7 @@ const mobalFormAddCard = () => {
 
 const mobalUpadteProfile = () => {
   const title = 'Actualiza tu perfil'
-  const formAddCard = `
+  const formUpdate = `
           <form class="mobal__form" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}'/>
             <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
@@ -67,7 +67,7 @@ const mobalUpadteProfile = () => {
             </button>
           </form>
   `
-  genereteMobal('', formAddCard, title)
+  genereteMobal('', formUpdate, title)
 }
 
 const genereteMobal = (className = '', content, title) => {
