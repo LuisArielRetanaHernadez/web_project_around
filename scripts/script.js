@@ -147,28 +147,12 @@ const handleAddNewCard = (e) => {
   closeMobal()
 }
 
-document.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  // update profile
-  if (e.target.id === 'form-update-profile') {
-    heandleUpdateProfile(e)
-  }
-
-  // add new card
-  if (e.target.id === 'form-add-card') {
-    handleAddNewCard(e)
-  }
-})
-
 const loadCards = () => {
   initialPhotos.forEach((photo) => {
     const $photo = templateCard(photo.name, photo.link)
     $photos.appendChild($photo)
   })
 }
-
-
 
 const poppaImage = (image) => {
   $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
@@ -193,6 +177,20 @@ const closePoppa = () => {
 const deletePhoto = (photo) => {
   photo.remove()
 }
+
+document.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  // update profile
+  if (e.target.id === 'form-update-profile') {
+    heandleUpdateProfile(e)
+  }
+
+  // add new card
+  if (e.target.id === 'form-add-card') {
+    handleAddNewCard(e)
+  }
+})
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
