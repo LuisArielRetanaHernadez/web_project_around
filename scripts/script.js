@@ -147,12 +147,10 @@ const handleAddNewCard = (e) => {
   closeMobal()
 }
 
-const loadCards = () => {
-  initialPhotos.forEach((photo) => {
-    const $photo = templateCard(photo.name, photo.link)
-    $photos.appendChild($photo)
-  })
-}
+initialPhotos.forEach((photo) => {
+  const $photo = templateCard(photo.name, photo.link)
+  $photos.appendChild($photo)
+})
 
 const poppaImage = (image) => {
   $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
@@ -178,6 +176,7 @@ const deletePhoto = (photo) => {
   photo.remove()
 }
 
+// agregue el evento submit en el document para que los formularios agregados dinamico del mobal
 document.addEventListener('submit', (e) => {
   e.preventDefault()
 
@@ -238,7 +237,6 @@ const loeadProfile = () => {
 }
 
 const loadLocalStorage = () => {
-  loadCards()
   loeadProfile()
 }
 
