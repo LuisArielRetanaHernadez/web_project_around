@@ -236,8 +236,5 @@ const loeadProfile = () => {
   }
 }
 
-const loadLocalStorage = () => {
-  loeadProfile()
-}
+loeadProfile()
 
-loadLocalStorage()
