@@ -41,7 +41,8 @@ const initialPhotos = [
     link: 'https://images.pexels.com/photos/485294/pexels-photo-485294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ]
-// el genere el formulario para que cotenido del mobal sea dinamico
+// El genedaor de modal lo hago para que el contenido del modal sea dinamico y se pueda agregar 
+// cualquier conteniedo ya sea formulario, alertas, etc...
 const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
