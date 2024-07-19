@@ -80,7 +80,6 @@ const genereteMobal = (className = '', content, title) => {
 
 btnModalAddCard.addEventListener('click', () => {
   mobalFormAddCard()
-  console.log('mobal ', $mobal)
   mobal.classList.add('mobal--active')
   document.querySelector('.page').appendChild(mobal)
 })
