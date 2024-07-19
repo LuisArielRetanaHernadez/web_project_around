@@ -1,19 +1,19 @@
-const $btnCloseModal = document.querySelector('.mobal__icon-close')
+const btnCloseModal = document.querySelector('.mobal__icon-close')
 
-const $btnUpdateProfile = document.querySelector('.profile__button-update-profile')
-const $btnModalAddCard = document.querySelector('.profile__button-add-target')
-const $btnDeleteCard = document.querySelectorAll('.photo__button-delete')
+const btnUpdateProfile = document.querySelector('.profile__button-update-profile')
+const btnModalAddCard = document.querySelector('.profile__button-add-target')
+const btnDeleteCard = document.querySelectorAll('.photo__button-delete')
 
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
-const $templateMobal = document.querySelector('#template-mobal')
-const $templatePoppa = document.querySelector('#template-poppa')
+const templateMobal = document.querySelector('#template-mobal')
+const templatePoppa = document.querySelector('#template-poppa')
 
-const $photos = document.querySelector('.elements__photos')
+const photos = document.querySelector('.elements__photos')
 
-let $mobal = null
-let $poppa = null
+let mobal = null
+let poppa = null
 
 const initialPhotos = [
   {
@@ -72,34 +72,34 @@ const mobalUpadteProfile = () => {
 }
 
 const genereteMobal = (className = '', content, title) => {
-  const $peronalizeMobal = $templateMobal.content.cloneNode(true).querySelector('.mobal')
-  $peronalizeMobal.querySelector('.mobal__title').textContent = title
-  $peronalizeMobal.querySelector('.mobal__content').innerHTML = content
-  $mobal = $peronalizeMobal
+  const peronalizeMobal = templateMobal.content.cloneNode(true).querySelector('.mobal')
+  peronalizeMobal.querySelector('.mobal__title').textContent = title
+  peronalizeMobal.querySelector('.mobal__content').innerHTML = content
+  mobal = peronalizeMobal
 }
 
-$btnModalAddCard.addEventListener('click', () => {
+btnModalAddCard.addEventListener('click', () => {
   mobalFormAddCard()
   console.log('mobal ', $mobal)
-  $mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild($mobal)
+  mobal.classList.add('mobal--active')
+  document.querySelector('.page').appendChild(mobal)
 })
 
-$btnUpdateProfile.addEventListener('click', () => {
+btnUpdateProfile.addEventListener('click', () => {
   mobalUpadteProfile()
-  $mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild($mobal)
+  mobal.classList.add('mobal--active')
+  document.querySelector('.page').appendChild(mobal)
 })
 
 const openMobal = (content, title) => {
-  if ($mobal) return
-  $mobal = genereteMobal(className, content, title)
-  $mobal.classList.add(className ? className : 'mobal--active')
+  if (mobal) return
+  mobal = genereteMobal(className, content, title)
+  mobal.classList.add(className ? className : 'mobal--active')
 }
 
 const closeMobal = (className = '') => {
-  $mobal.classList.remove(className ? className : 'mobal--active')
-  document.querySelector('.page').removeChild($mobal)
+  mobal.classList.remove(className ? className : 'mobal--active')
+  document.querySelector('.page').removeChild(mobal)
 }
 
 const heandleUpdateProfile = (e) => {
@@ -121,17 +121,17 @@ const heandleUpdateProfile = (e) => {
 }
 
 const templateCard = (title, url) => {
-  const $templatePhoto = document.querySelector('#template-photo')
-  const $photo = $templatePhoto.content.cloneNode(true).querySelector('.photo')
-  $photo.querySelector('.photo__title').textContent = title
-  $photo.querySelector('.photo__image').setAttribute('src', url)
-  $photo.querySelector('.photo__image').addEventListener('click', () => {
+  const templatePhoto = document.querySelector('#template-photo')
+  const photo = templatePhoto.content.cloneNode(true).querySelector('.photo')
+  photo.querySelector('.photo__title').textContent = title
+  photo.querySelector('.photo__image').setAttribute('src', url)
+  photo.querySelector('.photo__image').addEventListener('click', () => {
     poppaImage(url)
   })
-  $photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
-    deletePhoto($photo)
+  photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
+    deletePhoto(photo)
   })
-  return $photo
+  return photo
 }
 
 const handleAddNewCard = (e) => {
@@ -141,35 +141,35 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const $photo = templateCard(title, url)
+  const photo = templateCard(title, url)
 
-  $photos.prepend($photo)
+  photos.prepend(photo)
 
   closeMobal()
 }
 
 initialPhotos.forEach((photo) => {
   const $photo = templateCard(photo.name, photo.link)
-  $photos.appendChild($photo)
+  photos.appendChild($photo)
 })
 
 const poppaImage = (image) => {
-  $poppa = $templatePoppa.content.cloneNode(true).querySelector('.poppa')
-  $poppa.querySelector('.poppa__image').setAttribute('src', image)
-  $poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
+  poppa = templatePoppa.content.cloneNode(true).querySelector('.poppa')
+  poppa.querySelector('.poppa__image').setAttribute('src', image)
+  poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
     closePoppa()
   })
-  document.querySelector('.page').appendChild($poppa)
+  document.querySelector('.page').appendChild(poppa)
   openPoppa()
 }
 
 const openPoppa = () => {
-  $poppa = document.querySelector('.poppa')
-  $poppa.classList.add('poppa--active')
+  poppa = document.querySelector('.poppa')
+  poppa.classList.add('poppa--active')
 }
 
 const closePoppa = () => {
-  $poppa.classList.remove('poppa--active')
+  poppa.classList.remove('poppa--active')
   document.querySelector('.page').removeChild($poppa)
 }
 
@@ -198,16 +198,16 @@ const observer = new MutationObserver((mutations) => {
 
     if (mutation.type === 'childList') {
 
-      $mobal?.addEventListener('click', (e) => {
-        if (e.target === $mobal) {
+      mobal?.addEventListener('click', (e) => {
+        if (e.target === mobal) {
           closeMobal()
         }
       })
-      $mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
+      mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
         closeMobal()
       })
-      $poppa?.addEventListener('click', (e) => {
-        if (e.target === $poppa) {
+      poppa?.addEventListener('click', (e) => {
+        if (e.target === poppa) {
           closePoppa()
         }
       })
