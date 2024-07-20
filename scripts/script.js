@@ -125,7 +125,7 @@ const templateCard = (title, url) => {
   photo.querySelector('.photo__title').textContent = title
   photo.querySelector('.photo__image').setAttribute('src', url)
   photo.querySelector('.photo__image').addEventListener('click', () => {
-    poppaImage(url)
+    poppaImage(url, title)
   })
   photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
     deletePhoto(photo)
@@ -152,9 +152,10 @@ initialPhotos.forEach((photo) => {
   photos.appendChild($photo)
 })
 
-const poppaImage = (image) => {
+const poppaImage = (image, name) => {
   poppa = templatePoppa.content.cloneNode(true).querySelector('.poppa')
   poppa.querySelector('.poppa__image').setAttribute('src', image)
+  poppa.querySelector('.poppa__title').textContent = name
   poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
     closePoppa()
   })
