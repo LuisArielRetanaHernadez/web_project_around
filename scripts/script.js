@@ -169,7 +169,7 @@ const openPoppa = () => {
 
 const closePoppa = () => {
   poppa.classList.remove('poppa--active')
-  document.querySelector('.page').removeChild($poppa)
+  document.querySelector('.page').removeChild(poppa)
 }
 
 const deletePhoto = (photo) => {
