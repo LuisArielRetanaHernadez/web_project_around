@@ -55,11 +55,3 @@
   object-fit: cover;
   width: 100%;
 }
-/* ........ media query max-width 645px ......... */
-
-@media screen and (max-width: 645px) {
-  .poppa__icon-close {
-    top: 3%;
-    right: 10%;
-  }
-}
