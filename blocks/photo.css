@@ -56,25 +56,6 @@
 .photo__icon-love:hover .photo__icon-love-image {
   display: none;
 }
-.photo__icon-love-image_hover {
-  display: none;
-}
-.photo__icon-love:hover .photo__icon-love-image_hover {
-  display: inline-block;
-}
-
-.photo__icon-love:active .photo__icon-love-image,
-.photo__icon-love-image_hover {
-  display: none;
-}
-
-.photo__icon-love-image_active {
-  display: none;
-}
-
-.photo__icon-love:active .photo__icon-love-image_active {
-  display: inline-block;
-}
 
 /* ........ media query max-width 950px ......... */
 
