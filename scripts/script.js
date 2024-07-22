@@ -119,6 +119,11 @@ const heandleUpdateProfile = (e) => {
   closeMobal()
 }
 
+const lovePhoto = (photo) => {
+  console.log('photo ', photo)
+  photo.querySelector('.photo__icon-love').classList.toggle('photo__icon-love_active')
+}
+
 const templateCard = (title, url) => {
   const templatePhoto = document.querySelector('#template-photo')
   const photo = templatePhoto.content.cloneNode(true).querySelector('.photo')
@@ -129,6 +134,9 @@ const templateCard = (title, url) => {
   })
   photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
     deletePhoto(photo)
+  })
+  photo.querySelector('.photo__icon-love').addEventListener('click', () => {
+    lovePhoto(photo)
   })
   return photo
 }
