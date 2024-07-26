@@ -140,6 +140,14 @@ const hiddeErrorInput = (formElement, inputForm) => {
   errorElementMessage.textContent = ''
 }
 
+const checkInputValidity = (formElement, inputForm) => {
+  if (!inputForm.validity.valid) {
+    showErrorInput(formElement, inputForm, inputForm.validationMessage)
+  } else {
+    hiddeErrorInput(formElement, inputForm)
+  }
+}
+
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
