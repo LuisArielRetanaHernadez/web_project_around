@@ -126,9 +126,6 @@ const generetePhoto = (title, url) => {
   photo.querySelector('.photo__image').addEventListener('click', () => {
     poppaImage(url, title)
   })
-  photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
-    deletePhoto(photo)
-  })
   return photo
 }
 
@@ -136,6 +133,10 @@ photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
     lovePhoto(parentButton)
+  }
+  if (e.target.classList.contains('photo__icon-delete-image')) {
+    const parentButton = e.target.closest('.photo')
+    deletePhoto(parentButton)
   }
 })
 
