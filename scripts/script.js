@@ -160,8 +160,8 @@ const hasInvalidInput = (inputs) => {
 }
 
 const setEventListeners = formElement => {
-  const inputs = Array.from(formElement.querySelectorAll('input'))
-  const buttonSubmit = formElement.querySelector('.form__submit')
+  const inputs = Array.from(formElement.querySelectorAll('.form__input'))
+  const buttonSubmit = formElement.querySelector('.form__button-submit')
   toggleButtonState(inputs, buttonSubmit)
   inputs.forEach((input) => {
     input.addEventListener('input', () => {
@@ -177,14 +177,14 @@ const enableValidation = () => {
     formElement.addEventListener('submit', (e) => {
       e.preventDefault()
     })
-
-    const formsSelect = Array.form(formElement.querySelectorAll('[data-form-select="true"]'))
-
+    const formsSelect = Array.from(formElement.querySelectorAll('[data-field-select]'))
     formsSelect.forEach((formSelect) => {
       setEventListeners(formSelect)
     })
   })
 }
+
+enableValidation()
 
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
