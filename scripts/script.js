@@ -47,7 +47,7 @@ const initialPhotos = [
 const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
-          <form class="mobal__form" id="form-add-card" action="">
+          <form class="mobal__form form" data-form-select="true" id="form-add-card" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" placeholder='title' />
             <input class="mobal__form-input" id="input-profile-url-image" type="url" placeholder='url' />
             <button class="button mobal__button-submit" id="button-update-profile" type=submit">
@@ -61,7 +61,7 @@ const mobalFormAddCard = () => {
 const mobalUpadteProfile = () => {
   const title = 'Actualiza tu perfil'
   const formUpdate = `
-          <form class="mobal__form" id="form-update-profile" action="">
+          <form class="mobal__form form" data-form-select="true" id="form-update-profile" action="">
             <input class="mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}'/>
             <input class="mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
             <button class="button mobal__button-submit" id="button-update-profile" type=submit">
@@ -173,7 +173,12 @@ const enableValidation = () => {
     formElement.addEventListener('submit', (e) => {
       e.preventDefault()
     })
-    setEventListeners(formElement)
+
+    const formsSelect = Array.form(formElement.querySelectorAll('[data-form-select="true"]'))
+
+    formsSelect.forEach((formSelect) => {
+      setEventListeners(formSelect)
+    })
   })
 }
 
