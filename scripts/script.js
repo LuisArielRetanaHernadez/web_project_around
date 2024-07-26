@@ -148,6 +148,13 @@ const checkInputValidity = (formElement, inputForm) => {
   }
 }
 
+const hasInvalidInput = (inputs) => {
+  // return !formElement.checkValidity()
+  return inputs.some((input) => {
+    return !input.validity.valid
+  })
+}
+
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
