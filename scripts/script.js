@@ -133,6 +133,12 @@ const showErrorInput = (formElement, inputForm, errorMessage) => {
   errorElementMessage.textContent = errorMessage
   errorElementMessage.classList.add('form__input-error_active')
 }
+const hiddeErrorInput = (formElement, inputForm) => {
+  const errorElementMessage = formElement.querySelector(`.${inputForm.id}-error`)
+  inputForm.classList.remove('form__input_type_error')
+  errorElementMessage.classList.remove('form__input-error_active')
+  errorElementMessage.textContent = ''
+}
 
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
