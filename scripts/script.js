@@ -123,9 +123,6 @@ const generetePhoto = (title, url) => {
   const photo = templatePhoto.content.cloneNode(true).querySelector('.photo')
   photo.querySelector('.photo__title').textContent = title
   photo.querySelector('.photo__image').setAttribute('src', url)
-  photo.querySelector('.photo__image').addEventListener('click', () => {
-    poppaImage(url, title)
-  })
   return photo
 }
 
@@ -137,6 +134,13 @@ photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-delete-image')) {
     const parentButton = e.target.closest('.photo')
     deletePhoto(parentButton)
+  }
+
+  if (e.target.classList.contains('photo__image')) {
+    const photo = e.target.closest('.photo')
+    const title = photo.querySelector('.photo__title').textContent
+    const url = e.target.getAttribute('src')
+    poppaImage(url, title)
   }
 })
 
