@@ -116,7 +116,7 @@ const heandleUpdateProfile = (e) => {
 
 const lovePhoto = (photo) => {
   console.log('photo ', photo)
-  photo.querySelector('.photo__icon-love').classList.toggle('photo__icon-love_active')
+  photo.classList.toggle('photo__icon-love_active')
 }
 
 const generetePhoto = (title, url) => {
@@ -129,11 +129,15 @@ const generetePhoto = (title, url) => {
   photo.querySelector('.photo__icon-delete').addEventListener('click', () => {
     deletePhoto(photo)
   })
-  photo.querySelector('.photo__icon-love').addEventListener('click', () => {
-    lovePhoto(photo)
-  })
   return photo
 }
+
+photos.addEventListener('click', e => {
+  if (e.target.classList.contains('photo__icon-love-image')) {
+    const parentButton = e.target.closest('.photo__icon-love')
+    lovePhoto(parentButton)
+  }
+})
 
 const handleAddNewCard = (e) => {
   e.preventDefault()
