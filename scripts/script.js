@@ -127,6 +127,13 @@ const generetePhoto = (title, url) => {
   return photo
 }
 
+const showErrorInput = (formElement, inputForm, errorMessage) => {
+  const errorElementMessage = formElement.querySelector(`.${inputForm.id}-error`)
+  inputForm.classList.add('form__input_type_error')
+  errorElementMessage.textContent = errorMessage
+  errorElementMessage.classList.add('form__input-error_active')
+}
+
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
