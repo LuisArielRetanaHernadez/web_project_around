@@ -9,6 +9,7 @@ const profileState = document.querySelector('.profile__state')
 
 const templateMobal = document.querySelector('#template-mobal')
 const templatePoppa = document.querySelector('#template-poppa')
+const templatePhoto = document.querySelector('#template-photo')
 
 const photos = document.querySelector('.elements__photos')
 
@@ -90,12 +91,6 @@ btnUpdateProfile.addEventListener('click', () => {
   document.querySelector('.page').appendChild(mobal)
 })
 
-const openMobal = (content, title) => {
-  if (mobal) return
-  mobal = genereteMobal(className, content, title)
-  mobal.classList.add(className ? className : 'mobal--active')
-}
-
 const closeMobal = (className = '') => {
   mobal.classList.remove(className ? className : 'mobal--active')
   document.querySelector('.page').removeChild(mobal)
@@ -124,8 +119,7 @@ const lovePhoto = (photo) => {
   photo.querySelector('.photo__icon-love').classList.toggle('photo__icon-love_active')
 }
 
-const templateCard = (title, url) => {
-  const templatePhoto = document.querySelector('#template-photo')
+const generetePhoto = (title, url) => {
   const photo = templatePhoto.content.cloneNode(true).querySelector('.photo')
   photo.querySelector('.photo__title').textContent = title
   photo.querySelector('.photo__image').setAttribute('src', url)
@@ -148,7 +142,7 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const photo = templateCard(title, url)
+  const photo = generetePhoto(title, url)
 
   photos.prepend(photo)
 
@@ -156,7 +150,7 @@ const handleAddNewCard = (e) => {
 }
 
 initialPhotos.forEach((photo) => {
-  const $photo = templateCard(photo.name, photo.link)
+  const $photo = generetePhoto(photo.name, photo.link)
   photos.appendChild($photo)
 })
 
