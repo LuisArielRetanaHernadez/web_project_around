@@ -94,6 +94,7 @@ btnUpdateProfile.addEventListener('click', () => {
 const closeMobal = (className = '') => {
   mobal.classList.remove(className ? className : 'mobal--active')
   document.querySelector('.page').removeChild(mobal)
+  mobal = null
 }
 
 const heandleUpdateProfile = (e) => {
@@ -144,6 +145,7 @@ photos.addEventListener('click', e => {
   }
 })
 
+
 const handleAddNewCard = (e) => {
   e.preventDefault()
   const form = document.querySelector('#form-add-card')
@@ -182,11 +184,19 @@ const openPoppa = () => {
 const closePoppa = () => {
   poppa.classList.remove('poppa--active')
   document.querySelector('.page').removeChild(poppa)
+  poppa = null
 }
 
 const deletePhoto = (photo) => {
   photo.remove()
 }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    mobal && closeMobal()
+    poppa && closePoppa()
+  }
+})
 
 // agregue el evento submit en el document para que los formularios agregados dinamico del mobal
 document.addEventListener('submit', (e) => {
