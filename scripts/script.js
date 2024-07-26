@@ -155,6 +155,18 @@ const hasInvalidInput = (inputs) => {
   })
 }
 
+const setEventListeners = formElement => {
+  const inputs = Array.from(formElement.querySelectorAll('input'))
+  const buttonSubmit = formElement.querySelector('.form__submit')
+  toggleButtonState(inputs, buttonSubmit)
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+      checkInputValidity(formElement, input)
+      toggleButtonState(inputs, buttonSubmit)
+    })
+  })
+}
+
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
