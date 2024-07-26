@@ -167,6 +167,16 @@ const setEventListeners = formElement => {
   })
 }
 
+const enableValidation = () => {
+  const forms = Array.from(document.querySelectorAll('.form'))
+  forms.forEach((formElement) => {
+    formElement.addEventListener('submit', (e) => {
+      e.preventDefault()
+    })
+    setEventListeners(formElement)
+  })
+}
+
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
