@@ -159,6 +159,16 @@ const hasInvalidInput = (inputs) => {
   })
 }
 
+const toggleButtonState = (inputs, buttonSubmit) => {
+  if (hasInvalidInput(inputs)) {
+    buttonSubmit.classList.add('form__button-submit_disabled')
+    buttonSubmit.setAttribute('disabled', true)
+  } else {
+    buttonSubmit.classList.remove('form__button-submit_disabled')
+    buttonSubmit.removeAttribute('disabled')
+  }
+}
+
 const setEventListeners = formElement => {
   const inputs = Array.from(formElement.querySelectorAll('.form__input'))
   const buttonSubmit = formElement.querySelector('.form__button-submit')
