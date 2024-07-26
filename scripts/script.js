@@ -278,6 +278,10 @@ const observer = new MutationObserver((mutations) => {
 
     if (mutation.type === 'childList') {
 
+      if (mobal) {
+        enableValidation()
+      }
+
       mobal?.addEventListener('click', (e) => {
         if (e.target === mobal) {
           closeMobal()
