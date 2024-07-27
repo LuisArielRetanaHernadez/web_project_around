@@ -48,13 +48,15 @@ const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
           <form class="form mobal__form" data-form-select="true" id="form-add-card" action="">
-            <input class="form__input mobal__form-input" id="input-profile-name" data-field-select type=text" placeholder='title' />
-            <span class="form__error-message" id="input-profile-name-error"></span>
-            <input class="form__input mobal__form-input" id="input-profile-url-image" data-field-select type="url" placeholder='url' />
-            <span class="form__error-message" id="input-profile-url-image-error"></span>
-            <button class="button form__button-submit mobal__button-submit" id="button-update-profile" data-field-select type=submit">
-              Guardar
-            </button>
+            <fieldset class="form__field-set" data-field-select>
+              <input class="form__input mobal__form-input" id="input-profile-name" type=text" placeholder='title' />
+              <span class="form__error-message" id="input-profile-name-error"></span>
+              <input class="form__input mobal__form-input" id="input-profile-url-image" type="url" placeholder='url' />
+              <span class="form__error-message" id="input-profile-url-image-error"></span>
+              <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
+                Guardar
+              </button>
+            </fieldset>
           </form>
   `
   genereteMobal('', formAddCard, title)
@@ -64,13 +66,15 @@ const mobalUpadteProfile = () => {
   const title = 'Actualiza tu perfil'
   const formUpdate = `
           <form class="form mobal__form" id="form-update-profile" action="">
-            <input class="form__input mobal__form-input" id="input-profile-name" data-field-select type=text" value='${profileName.textContent}'/>
-            <span class="form__error-message" id="input-profile-name-error"></span>
-            <input class="form__input mobal__form-input" id="input-profile-state" data-field-select type="text" value='${profileState.textContent}'/>
-            <span class="form__error-message" id="input-profile-state-error"></span>
-            <button class="button form__button-submit mobal__button-submit" id="button-update-profile" data-field-select type=submit">
-              Guardar
-            </button>
+            <fieldset class="form__field-set" data-field-select>
+              <input class="form__input mobal__form-input" id="input-profile-name" type=text" value='${profileName.textContent}'/>
+              <span class="form__error-message" id="input-profile-name-error"></span>
+              <input class="form__input mobal__form-input" id="input-profile-state" type="text" value='${profileState.textContent}'/>
+              <span class="form__error-message" id="input-profile-state-error"></span>
+              <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
+                Guardar
+              </button>
+            </fieldset>
           </form>
   `
   genereteMobal('', formUpdate, title)
