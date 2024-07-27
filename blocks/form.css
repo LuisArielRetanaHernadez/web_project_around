@@ -24,6 +24,11 @@
   border-bottom: 1px solid black;
 }
 
+.form__error-message {
+  color: red;
+  font-size: 14px;
+}
+
 /* butto submit */
 .form__button-submit {
   width: 100%;
