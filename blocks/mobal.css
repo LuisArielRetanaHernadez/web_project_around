@@ -30,6 +30,12 @@
 }
 
 .mobal__form {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobal__form-field-set {
   display: flex;
   flex-direction: column;
 }
@@ -44,8 +50,6 @@
 }
 
 .mobal__button-submit {
-  width: 100%;
-  color: #ffffff;
   border-radius: 0;
   transition: all 0.1s;
 }
