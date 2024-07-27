@@ -76,16 +76,21 @@ const mobalUpadteProfile = () => {
   const formUpdate = `
           <form class="form mobal__form" id="form-update-profile" action="">
             <fieldset class="form__field-set" data-field-select>
-              
-            <input class="form__input mobal__form-input" id="input-profile-name"
+
+            <div class="form__field-component">
+              <input class="form__input mobal__form-input" id="input-profile-name"
               required minlength="7" maxlength="15"
-             type=text" value='${profileName.textContent}'/>
-            <span class="form__error-message" id="input-profile-name-error"></span>
-              
-              <input class="form__input mobal__form-input" id="input-profile-state"
-               required minlength="7" maxlength="15"
-               type="text" value='${profileState.textContent}'/>
-              <span class="form__error-message" id="input-profile-state-error"></span>
+              type=text" value='${profileName.textContent}'/>
+              <span class="form__error-message" id="input-profile-name-error"></span>
+            </div>
+
+              <div class="form__field-component">
+                <input class="form__input mobal__form-input" id="input-profile-state"
+                required minlength="7" maxlength="15"
+                type="text" value='${profileState.textContent}'/>
+                <span class="form__error-message" id="input-profile-state-error"></span>
+              </div>
+
               
               <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
                 Guardar
