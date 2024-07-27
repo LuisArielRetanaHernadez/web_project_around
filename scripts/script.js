@@ -48,7 +48,7 @@ const mobalFormAddCard = () => {
   const title = 'Agrega una tarjeta'
   const formAddCard = `
           <form class="form mobal__form" data-form-select="true" id="form-add-card" action="">
-            <fieldset class="form__field-set" data-field-select>
+            <fieldset class="form__field-set mobal__form-field-set" data-field-select>
               <input class="form__input mobal__form-input" id="input-profile-name" required minlength="7" maxlength="15" type=text" placeholder='title' />
               <span class="form__error-message" id="input-profile-name-error"></span>
               <input class="form__input mobal__form-input" id="input-profile-url-image" type="url" placeholder='url' />
