@@ -49,14 +49,18 @@ const mobalFormAddCard = () => {
   const formAddCard = `
           <form class="form mobal__form" data-form-select="true" id="form-add-card" action="">
             <fieldset class="form__field-set mobal__form-field-set" data-field-select>
+              <div class="form__field-component">
+                <input class="form__input mobal__form-input" id="input-profile-name" required minlength="2" maxlength="30" type=text" placeholder='title' />
+                <span class="form__error-message" id="input-profile-name-error"></span>
+              </div>
 
-              <input class="form__input mobal__form-input" id="input-profile-name" required minlength="2" maxlength="30" type=text" placeholder='title' />
-              <span class="form__error-message" id="input-profile-name-error"></span>
-              
-              <input class="form__input mobal__form-input" id="input-profile-url-image"
-              required
-               type="url" placeholder='url' />
-              <span class="form__error-message" id="input-profile-url-image-error"></span>
+
+              <div class="form__field-component">
+                <input class="form__input mobal__form-input" id="input-profile-url-image"
+                required
+                type="url" placeholder='url' />
+                <span class="form__error-message" id="input-profile-url-image-error"></span>
+              </div>
               
               <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
                 Guardar
