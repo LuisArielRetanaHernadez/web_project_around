@@ -1,17 +1,17 @@
-const showErrorInput = (formElement, inputForm, errorMessage) => {
+export const showErrorInput = (formElement, inputForm, errorMessage) => {
   const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
   inputForm.classList.add('form__input_type_error')
   errorElementMessage.textContent = errorMessage
   errorElementMessage.classList.add('form__input-error_active')
 }
-const hiddeErrorInput = (formElement, inputForm) => {
+export const hiddeErrorInput = (formElement, inputForm) => {
   const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
   inputForm.classList.remove('form__input_type_error')
   errorElementMessage.classList.remove('form__input-error_active')
   errorElementMessage.textContent = ''
 }
 
-const checkInputValidity = (formElement, inputForm) => {
+export const checkInputValidity = (formElement, inputForm) => {
   if (!inputForm.validity.valid) {
     showErrorInput(formElement, inputForm, inputForm.validationMessage)
   } else {
@@ -19,13 +19,13 @@ const checkInputValidity = (formElement, inputForm) => {
   }
 }
 
-const hasInvalidInput = (inputs) => {
+export const hasInvalidInput = (inputs) => {
   return inputs.some((input) => {
     return !input.validity.valid
   })
 }
 
-const toggleButtonState = (inputs, buttonSubmit) => {
+export const toggleButtonState = (inputs, buttonSubmit) => {
   if (hasInvalidInput(inputs)) {
     buttonSubmit.classList.add('form__button-submit_disabled')
     buttonSubmit.setAttribute('disabled', true)
@@ -35,7 +35,7 @@ const toggleButtonState = (inputs, buttonSubmit) => {
   }
 }
 
-const setEventListeners = formElement => {
+export const setEventListeners = formElement => {
   const inputs = Array.from(formElement.querySelectorAll('.form__input'))
   const buttonSubmit = formElement.querySelector('.form__button-submit')
   toggleButtonState(inputs, buttonSubmit)
@@ -47,7 +47,7 @@ const setEventListeners = formElement => {
   })
 }
 
-const enableValidation = () => {
+export const enableValidation = () => {
   const forms = Array.from(document.querySelectorAll('.form'))
   forms.forEach((formElement) => {
     formElement.addEventListener('submit', (e) => {
