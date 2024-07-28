@@ -1,17 +1,17 @@
-export const showErrorInput = (formElement, inputForm, errorMessage) => {
+const showErrorInput = (formElement, inputForm, errorMessage) => {
   const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
   inputForm.classList.add('form__input_type_error')
   errorElementMessage.textContent = errorMessage
   errorElementMessage.classList.add('form__input-error_active')
 }
-export const hiddeErrorInput = (formElement, inputForm) => {
+const hiddeErrorInput = (formElement, inputForm) => {
   const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
   inputForm.classList.remove('form__input_type_error')
   errorElementMessage.classList.remove('form__input-error_active')
   errorElementMessage.textContent = ''
 }
 
-export const checkInputValidity = (formElement, inputForm) => {
+const checkInputValidity = (formElement, inputForm) => {
   if (!inputForm.validity.valid) {
     showErrorInput(formElement, inputForm, inputForm.validationMessage)
   } else {
@@ -19,13 +19,13 @@ export const checkInputValidity = (formElement, inputForm) => {
   }
 }
 
-export const hasInvalidInput = (inputs) => {
+const hasInvalidInput = (inputs) => {
   return inputs.some((input) => {
     return !input.validity.valid
   })
 }
 
-export const toggleButtonState = (inputs, buttonSubmit) => {
+const toggleButtonState = (inputs, buttonSubmit) => {
   if (hasInvalidInput(inputs)) {
     buttonSubmit.classList.add('form__button-submit_disabled')
     buttonSubmit.setAttribute('disabled', true)
@@ -35,7 +35,7 @@ export const toggleButtonState = (inputs, buttonSubmit) => {
   }
 }
 
-export const setEventListeners = formElement => {
+const setEventListeners = formElement => {
   const inputs = Array.from(formElement.querySelectorAll('.form__input'))
   const buttonSubmit = formElement.querySelector('.form__button-submit')
   toggleButtonState(inputs, buttonSubmit)
