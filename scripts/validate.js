@@ -84,3 +84,71 @@ export const enableValidation = (setting = {}) => {
     })
   })
 }
+
+// ################## Otra opcion funcional, aunque que creo que con las clases se puede mejorar con tema de la configuracion
+// export const initValidate = (setting) => {
+//   const showErrorInput = (formElement, inputForm, errorMessage) => {
+//     const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
+//     inputForm.classList.add(setting.inputErrorClass ? setting.inputErrorClass : 'form__input_type_error')
+//     errorElementMessage.textContent = errorMessage
+//     errorElementMessage.classList.add(setting.errorClass ? setting.errorClass : 'form__input-error_active')
+//   }
+//   const hiddeErrorInput = (formElement, inputForm) => {
+//     const errorElementMessage = formElement.querySelector(`#${inputForm.id}-error`)
+//     inputForm.classList.remove(setting.inputErrorClass ? setting.inputErrorClass : 'form__input_type_error')
+//     errorElementMessage.classList.remove(setting.errorClass ? setting.errorClass : 'form__input-error_active')
+//     errorElementMessage.textContent = ''
+//   }
+
+//   const checkInputValidity = (formElement, inputForm) => {
+//     if (!inputForm.validity.valid) {
+//       showErrorInput(formElement, inputForm, inputForm.validationMessage)
+//     } else {
+//       hiddeErrorInput(formElement, inputForm)
+//     }
+//   }
+
+//   const hasInvalidInput = (inputs) => {
+//     // return !formElement.checkValidity()
+//     return inputs.some((input) => {
+//       return !input.validity.valid
+//     })
+//   }
+
+//   const toggleButtonState = (inputs, buttonSubmit) => {
+//     if (hasInvalidInput(inputs)) {
+//       buttonSubmit.classList.add(setting.inactiveButtonClass ? setting.inactiveButtonClass : 'form__button-submit_disabled')
+//       buttonSubmit.setAttribute('disabled', true)
+//     } else {
+//       buttonSubmit.classList.remove(setting.inactiveButtonClass ? setting.inactiveButtonClass : 'form__button-submit_disabled')
+//       buttonSubmit.removeAttribute('disabled')
+//     }
+//   }
+
+//   const setEventListeners = formElement => {
+//     const inputs = Array.from(formElement.querySelectorAll(setting?.inputSelector ? setting?.inputSelector : 'form__input'))
+//     const buttonSubmit = formElement.querySelector(setting?.submitButtonSelector ? setting?.submitButtonSelector : '.form__button-submit')
+//     toggleButtonState(inputs, buttonSubmit)
+//     inputs.forEach((input) => {
+//       input.addEventListener('input', () => {
+//         checkInputValidity(formElement, input)
+//         toggleButtonState(inputs, buttonSubmit)
+//       })
+//     })
+//   }
+
+//   const enableValidation = () => {
+//     const forms = Array.from(document.querySelectorAll(setting?.formSelector ? setting?.formSelector : '.form'))
+//     forms.forEach((formElement) => {
+//       formElement.addEventListener('submit', (e) => {
+//         e.preventDefault()
+//       })
+//       const formsSelect = Array.from(formElement.querySelectorAll('[data-field-select]'))
+//       formsSelect.forEach((elemetForm) => {
+//         setEventListeners(elemetForm)
+//       })
+//     })
+//   }
+
+//   enableValidation()
+// }
