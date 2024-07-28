@@ -20,14 +20,12 @@ const checkInputValidity = (formElement, inputForm) => {
 }
 
 const hasInvalidInput = (inputs) => {
-  // return !formElement.checkValidity()
   return inputs.some((input) => {
     return !input.validity.valid
   })
 }
 
 const toggleButtonState = (inputs, buttonSubmit) => {
-  console.log('has valid ', hasInvalidInput(inputs))
   if (hasInvalidInput(inputs)) {
     buttonSubmit.classList.add('form__button-submit_disabled')
     buttonSubmit.setAttribute('disabled', true)
@@ -57,7 +55,6 @@ const enableValidation = () => {
     })
     const formsSelect = Array.from(formElement.querySelectorAll('[data-field-select]'))
     formsSelect.forEach((elemetForm) => {
-      console.log('formSelect ', elemetForm)
       setEventListeners(elemetForm)
     })
   })
