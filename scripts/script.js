@@ -1,8 +1,5 @@
-const btnCloseModal = document.querySelector('.mobal__icon-close')
-
 const btnUpdateProfile = document.querySelector('.profile__button-update-profile')
 const btnModalAddCard = document.querySelector('.profile__button-add-target')
-const btnDeleteCard = document.querySelectorAll('.photo__button-delete')
 
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
