@@ -14,9 +14,6 @@ let mobal = null
 let poppa = null
 
 // validate
-import {
-  enableValidation,
-} from './validate.js'
 
 const initialPhotos = [
   {
@@ -158,8 +155,6 @@ const generetePhoto = (title, url) => {
   return photo
 }
 
-enableValidation()
-
 photos.addEventListener('click', e => {
   if (e.target.classList.contains('photo__icon-love-image')) {
     const parentButton = e.target.closest('.photo__icon-love')
@@ -252,9 +247,6 @@ const observer = new MutationObserver((mutations) => {
 
     if (mutation.type === 'childList') {
 
-      if (mobal) {
-        enableValidation()
-      }
 
       mobal?.addEventListener('click', (e) => {
         if (e.target === mobal) {
