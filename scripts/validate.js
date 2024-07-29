@@ -64,7 +64,7 @@ const setEventListeners = (formElement, elementsSelect) => {
   })
 }
 
-export const enableValidation = (setting = {}) => {
+const enableValidation = (setting = {}) => {
   const formSelector = setting.formSelector
   const forms = Array.from(document.querySelectorAll(formSelector ? formSelector : '.form'))
   forms.forEach((formElement) => {
@@ -84,6 +84,19 @@ export const enableValidation = (setting = {}) => {
     })
   })
 }
+
+enableValidation()
+
+// crear un observador si el mobal se llegara a crear y volver a ejecutar enableVlidation
+const observer = new MutationObserver(mutations => {
+  // comprobar si el mobal se muestra en la pantalla (se creo)
+  mutations.forEach(mutation => {
+    if (mutation.addedNodes.length > 0 && mutation.addedNodes[0]?.classList.contains('mobal--active')) {
+      enableValidation()
+    }
+  })
+})
+observer.observe(document.querySelector('.page'), { childList: true })
 
 // ################## Otra opcion funcional, aunque que creo que con las clases se puede mejorar con tema de la configuracion
 // export const initValidate = (setting) => {
