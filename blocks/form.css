@@ -25,6 +25,10 @@
   outline: none;
 }
 
+.form__input_type_error {
+  border-bottom: 1px solid red;
+}
+
 .form__error-message {
   color: red;
   font-size: 14px;
