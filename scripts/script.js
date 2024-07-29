@@ -139,8 +139,6 @@ const heandleUpdateProfile = (e) => {
     state: inputs[1].value
   })
 
-  // close modal
-  closeMobal()
 }
 
 const lovePhoto = (photo) => {
