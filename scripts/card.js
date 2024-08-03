@@ -15,6 +15,16 @@ class Card {
     return cardElement;
   }
 
+  createCard() {
+    this._element = this._getTemplate();
+    this._setEventListeners();
+
+    this._element.querySelector('.photo__title').textContent = this._text;
+    this._element.querySelector('.photo__image').setAttribute('src', this._url);
+
+    return this._element;
+  }
+
   _setEventListeners() {
     this._element.querySelector('.photo__icon-love').addEventListener('click', () => {
       this._likeCard();
