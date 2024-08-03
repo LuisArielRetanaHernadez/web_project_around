@@ -15,6 +15,16 @@ class Card {
     return cardElement;
   }
 
+  _setEventListeners() {
+    this._element.querySelector('.photo__icon-love').addEventListener('click', () => {
+      this._likeCard();
+    });
+
+    this._element.querySelector('.pphoto__icon-delete-image').addEventListener('click', () => {
+      this._deleteCard();
+    });
+  }
+
   _likeCard() {
     this._element.querySelector('.photo__icon-love-image').classList.toggle('photo__icon-love_active')
   }
