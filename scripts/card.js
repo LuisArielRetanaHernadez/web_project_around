@@ -4,4 +4,14 @@ class Card {
     this._url = url;
     this._selectorElement = selectorElement
   }
+
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._selectorElement)
+      .content
+      .querySelector('.card')
+      .cloneNode(true);
+
+    return cardElement;
+  }
 }
