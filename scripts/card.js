@@ -14,4 +14,8 @@ class Card {
 
     return cardElement;
   }
+
+  _likeCard() {
+    this._element.querySelector('.photo__icon-love-image').classList.toggle('photo__icon-love_active')
+  }
 }
