@@ -18,4 +18,9 @@ class Card {
   _likeCard() {
     this._element.querySelector('.photo__icon-love-image').classList.toggle('photo__icon-love_active')
   }
+
+  _deleteCard() {
+    this._element.remove();
+    this._element = null;
+  }
 }
