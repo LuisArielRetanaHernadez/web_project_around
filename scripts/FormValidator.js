@@ -38,4 +38,12 @@ class FormValidator {
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = '';
   }
+
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showErrorInput(inputElement, inputElement.validationMessage);
+    } else {
+      this._hiddenErrorInput(inputElement);
+    }
+  }
 }
