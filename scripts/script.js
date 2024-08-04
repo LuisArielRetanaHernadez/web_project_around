@@ -13,6 +13,7 @@ const photos = document.querySelector('.elements__photos')
 let mobal = null
 let poppa = null
 
+import { Card } from "./card"
 // validate
 
 const initialPhotos = [
