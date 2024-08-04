@@ -24,4 +24,11 @@ class FormValidator {
       buttonElement.disabled = false;
     }
   }
+
+  _showErrorInput(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add(this._inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._errorClass);
+  }
 }
