@@ -14,6 +14,7 @@ let mobal = null
 let poppa = null
 
 import { Card } from "./card"
+import { FormValidator } from "./FormValidator"
 // validate
 
 const initialPhotos = [
