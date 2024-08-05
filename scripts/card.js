@@ -30,7 +30,7 @@ export class Card {
       this._likeCard();
     });
 
-    this._element.querySelector('.pphoto__icon-delete-image').addEventListener('click', () => {
+    this._element.querySelector('.photo__icon-delete-image').addEventListener('click', () => {
       this._deleteCard();
     });
   }
