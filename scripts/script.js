@@ -67,9 +67,10 @@ const handleAddNewCard = (e) => {
   photos.prepend(cardElement)
 }
 
-initialPhotos.forEach((photo) => {
-  const $photo = new Card(photo.name, photo.link, '#template-photo').getCardElement()
-  photos.appendChild($photo)
+initialPhotos.forEach((card) => {
+  const newCard = new Card(card.name, card.link, '#template-photo')
+  const cardElement = newCard.createCard()
+  photos.appendChild(cardElement)
 })
 
 
