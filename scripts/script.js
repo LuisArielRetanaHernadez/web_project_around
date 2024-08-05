@@ -61,8 +61,8 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const card = new Card(title, url, '#template-photo')
-  const cardElement = card.getCardElement()
+  const newCard = new Card(title, url, '#template-photo')
+  const cardElement = newCard.createCard()
 
   photos.prepend(cardElement)
 }
