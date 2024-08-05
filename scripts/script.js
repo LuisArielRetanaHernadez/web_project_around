@@ -143,36 +143,6 @@ const heandleUpdateProfile = (e) => {
 
 }
 
-const lovePhoto = (photo) => {
-  console.log('photo ', photo)
-  photo.classList.toggle('photo__icon-love_active')
-}
-
-const generetePhoto = (title, url) => {
-  const photo = templatePhoto.content.cloneNode(true).querySelector('.photo')
-  photo.querySelector('.photo__title').textContent = title
-  photo.querySelector('.photo__image').setAttribute('src', url)
-  return photo
-}
-
-photos.addEventListener('click', e => {
-  if (e.target.classList.contains('photo__icon-love-image')) {
-    const parentButton = e.target.closest('.photo__icon-love')
-    lovePhoto(parentButton)
-  }
-  if (e.target.classList.contains('photo__icon-delete-image')) {
-    const parentButton = e.target.closest('.photo')
-    deletePhoto(parentButton)
-  }
-
-  if (e.target.classList.contains('photo__image')) {
-    const photo = e.target.closest('.photo')
-    const title = photo.querySelector('.photo__title').textContent
-    const url = e.target.getAttribute('src')
-    poppaImage(url, title)
-  }
-})
-
 
 const handleAddNewCard = (e) => {
   e.preventDefault()
@@ -181,15 +151,16 @@ const handleAddNewCard = (e) => {
   const title = inputs[0].value
   const url = inputs[1].value
 
-  const photo = generetePhoto(title, url)
+  const card = new Card(title, url, '#template-photo')
+  const cardElement = card.getCardElement()
 
-  photos.prepend(photo)
+  photos.prepend(cardElement)
 
   closeMobal()
 }
 
 initialPhotos.forEach((photo) => {
-  const $photo = generetePhoto(photo.name, photo.link)
+  const $photo = new Card(photo.name, photo.link, '#template-photo').getCardElement()
   photos.appendChild($photo)
 })
 
@@ -215,9 +186,6 @@ const closePoppa = () => {
   poppa = null
 }
 
-const deletePhoto = (photo) => {
-  photo.remove()
-}
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
