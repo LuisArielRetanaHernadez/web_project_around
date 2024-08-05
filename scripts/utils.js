@@ -1,5 +1,6 @@
 const templatePhoto = document.querySelector('#template-photo')
 const templateMobal = document.querySelector('#template-mobal')
+const templatePoppa = document.querySelector('#template-poppa')
 
 const btnUpdateProfile = document.querySelector('.profile__button-update-profile')
 const btnModalAddCard = document.querySelector('.profile__button-add-target')
@@ -110,6 +111,15 @@ const poppaImage = (image, name) => {
   document.querySelector('.page').appendChild(poppa)
   openPoppa()
 }
+
+document.querySelector('.elements__photos').addEventListener('click', (e) => {
+  if (e.target.classList.contains('photo__image')) {
+    const photo = e.target.closest('.photo')
+    const title = photo.querySelector('.photo__title').textContent
+    const url = e.target.getAttribute('src')
+    poppaImage(url, title)
+  }
+})
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
