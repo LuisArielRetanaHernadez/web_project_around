@@ -1,17 +1,10 @@
-const btnUpdateProfile = document.querySelector('.profile__button-update-profile')
-const btnModalAddCard = document.querySelector('.profile__button-add-target')
-
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
-const templateMobal = document.querySelector('#template-mobal')
 const templatePoppa = document.querySelector('#template-poppa')
-const templatePhoto = document.querySelector('#template-photo')
 
 const photos = document.querySelector('.elements__photos')
 
-let mobal = null
-let poppa = null
 
 import { Card } from "./card"
 import { FormValidator } from "./FormValidator"
@@ -43,89 +36,7 @@ const initialPhotos = [
     link: 'https://images.pexels.com/photos/485294/pexels-photo-485294.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ]
-// El genedaor de modal lo hago para que el contenido del modal sea dinamico y se pueda agregar 
-// cualquier conteniedo ya sea formulario, alertas, etc...
-const mobalFormAddCard = () => {
-  const title = 'Agrega una tarjeta'
-  const formAddCard = `
-          <form class="form mobal__form" data-form-select="true" id="form-add-card" action="">
-            <fieldset class="form__field-set mobal__form-field-set" data-field-select>
-              <div class="form__field-component">
-                <input class="form__input mobal__form-input" id="input-profile-name" required minlength="2" maxlength="30" type=text" placeholder='title' />
-                <span class="form__error-message" id="input-profile-name-error"></span>
-              </div>
 
-
-              <div class="form__field-component">
-                <input class="form__input mobal__form-input" id="input-profile-url-image"
-                required
-                type="url" placeholder='url' />
-                <span class="form__error-message" id="input-profile-url-image-error"></span>
-              </div>
-              
-              <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
-                Guardar
-              </button>
-            </fieldset>
-          </form>
-  `
-  genereteMobal('', formAddCard, title)
-}
-
-const mobalUpadteProfile = () => {
-  const title = 'Actualiza tu perfil'
-  const formUpdate = `
-          <form class="form mobal__form" id="form-update-profile" action="">
-            <fieldset class="form__field-set" data-field-select>
-
-            <div class="form__field-component">
-              <input class="form__input mobal__form-input" id="input-profile-name"
-              required minlength="7" maxlength="15"
-              type=text" value='${profileName.textContent}'/>
-              <span class="form__error-message" id="input-profile-name-error"></span>
-            </div>
-
-              <div class="form__field-component">
-                <input class="form__input mobal__form-input" id="input-profile-state"
-                required minlength="7" maxlength="15"
-                type="text" value='${profileState.textContent}'/>
-                <span class="form__error-message" id="input-profile-state-error"></span>
-              </div>
-
-              
-              <button class="button form__button-submit mobal__button-submit" id="button-update-profile" type=submit">
-                Guardar
-              </button>
-            </fieldset>
-          </form>
-  `
-  genereteMobal('', formUpdate, title)
-}
-
-const genereteMobal = (className = '', content, title) => {
-  const peronalizeMobal = templateMobal.content.cloneNode(true).querySelector('.mobal')
-  peronalizeMobal.querySelector('.mobal__title').textContent = title
-  peronalizeMobal.querySelector('.mobal__content').innerHTML = content
-  mobal = peronalizeMobal
-}
-
-btnModalAddCard.addEventListener('click', () => {
-  mobalFormAddCard()
-  mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild(mobal)
-})
-
-btnUpdateProfile.addEventListener('click', () => {
-  mobalUpadteProfile()
-  mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild(mobal)
-})
-
-const closeMobal = (className = '') => {
-  mobal.classList.remove(className ? className : 'mobal--active')
-  document.querySelector('.page').removeChild(mobal)
-  mobal = null
-}
 
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
@@ -143,7 +54,6 @@ const heandleUpdateProfile = (e) => {
 
 }
 
-
 const handleAddNewCard = (e) => {
   e.preventDefault()
   const form = document.querySelector('#form-add-card')
@@ -155,8 +65,6 @@ const handleAddNewCard = (e) => {
   const cardElement = card.getCardElement()
 
   photos.prepend(cardElement)
-
-  closeMobal()
 }
 
 initialPhotos.forEach((photo) => {
@@ -164,35 +72,7 @@ initialPhotos.forEach((photo) => {
   photos.appendChild($photo)
 })
 
-const poppaImage = (image, name) => {
-  poppa = templatePoppa.content.cloneNode(true).querySelector('.poppa')
-  poppa.querySelector('.poppa__image').setAttribute('src', image)
-  poppa.querySelector('.poppa__title').textContent = name
-  poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
-    closePoppa()
-  })
-  document.querySelector('.page').appendChild(poppa)
-  openPoppa()
-}
 
-const openPoppa = () => {
-  poppa = document.querySelector('.poppa')
-  poppa.classList.add('poppa--active')
-}
-
-const closePoppa = () => {
-  poppa.classList.remove('poppa--active')
-  document.querySelector('.page').removeChild(poppa)
-  poppa = null
-}
-
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    mobal && closeMobal()
-    poppa && closePoppa()
-  }
-})
 
 // agregue el evento submit en el document para que los formularios agregados dinamico del mobal
 document.addEventListener('submit', (e) => {
@@ -209,30 +89,6 @@ document.addEventListener('submit', (e) => {
   }
 })
 
-// crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-
-    if (mutation.type === 'childList') {
-
-
-      mobal?.addEventListener('click', (e) => {
-        if (e.target === mobal) {
-          closeMobal()
-        }
-      })
-      mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
-        closeMobal()
-      })
-      poppa?.addEventListener('click', (e) => {
-        if (e.target === poppa) {
-          closePoppa()
-        }
-      })
-    }
-  })
-})
-observer.observe(document.querySelector('.page'), { childList: true })
 
 
 const setLocalStorage = (key, value) => {
