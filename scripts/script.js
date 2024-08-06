@@ -95,8 +95,9 @@ document.addEventListener('submit', (e) => {
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.type === 'childList') {
-      const form = document.querySelector('#form-add-card')
-      if (form) {
+      const formAddCard = document.querySelector('#form-add-card')
+      const formUpdateProfile = document.querySelector('#form-update-profile')
+      if (formAddCard || formUpdateProfile) {
         const formCreateCard = new FormValidator({
           formSelector: '.form',
           inputSelector: '.form__input',
@@ -104,7 +105,7 @@ const observer = new MutationObserver((mutations) => {
           inactiveButtonClass: 'form__button-submit_disabled',
           inputErrorClass: 'form__input_type_error',
           errorClass: '.form__error_visible'
-        }, form)
+        }, formAddCard || formUpdateProfile)
         formCreateCard.enableValidation()
       }
     }
