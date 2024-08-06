@@ -101,9 +101,9 @@ const observer = new MutationObserver((mutations) => {
           formSelector: '.form',
           inputSelector: '.form__input',
           submitButtonSelector: '.form__button-submit',
-          inactiveButtonClass: 'form__button_disabled',
+          inactiveButtonClass: 'form__button-submit_disabled',
           inputErrorClass: 'form__input_type_error',
-          errorClass: 'form__error_visible'
+          errorClass: '.form__error_visible'
         }, form)
         formCreateCard.enableValidation()
       }
