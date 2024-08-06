@@ -6,7 +6,7 @@ const templatePoppa = document.querySelector('#template-poppa')
 const photos = document.querySelector('.elements__photos')
 
 
-import { Card } from "./card.js"
+import { Card } from "./Card.js"
 import { FormValidator } from "./FormValidator.js"
 // validate
 
