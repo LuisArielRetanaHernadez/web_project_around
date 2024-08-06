@@ -1,4 +1,3 @@
-const templatePhoto = document.querySelector('#template-photo')
 const templateMobal = document.querySelector('#template-mobal')
 const templatePoppa = document.querySelector('#template-poppa')
 
@@ -65,10 +64,10 @@ const mobalUpadteProfile = () => {
             </fieldset>
           </form>
   `
-  genereteMobal('', formUpdate, title)
+  genereteMobal(formUpdate, title)
 }
 
-const genereteMobal = (className = '', content, title) => {
+const genereteMobal = (content, title) => {
   const peronalizeMobal = templateMobal.content.cloneNode(true).querySelector('.mobal')
   peronalizeMobal.querySelector('.mobal__title').textContent = title
   peronalizeMobal.querySelector('.mobal__content').innerHTML = content
