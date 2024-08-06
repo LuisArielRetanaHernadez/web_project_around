@@ -92,6 +92,26 @@ document.addEventListener('submit', (e) => {
 
 
 
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'childList') {
+      const form = document.querySelector('#form-add-card')
+      if (form) {
+        const formCreateCard = new FormValidator({
+          formSelector: '.form',
+          inputSelector: '.form__input',
+          submitButtonSelector: '.form__button-submit',
+          inactiveButtonClass: 'form__button_disabled',
+          inputErrorClass: 'form__input_type_error',
+          errorClass: 'form__error_visible'
+        }, form)
+        formCreateCard.enableValidation()
+      }
+    }
+  })
+})
+observer.observe(document.body, { childList: true, subtree: true })
+
 const setLocalStorage = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value))
 }
