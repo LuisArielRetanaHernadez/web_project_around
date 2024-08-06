@@ -1,16 +1,12 @@
+import { Card } from "./Card.js"
+import { FormValidator } from "./FormValidator.js"
+
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
-const templatePoppa = document.querySelector('#template-poppa')
+const cards = document.querySelector('.elements__photos')
 
-const photos = document.querySelector('.elements__photos')
-
-
-import { Card } from "./Card.js"
-import { FormValidator } from "./FormValidator.js"
-// validate
-
-const initialPhotos = [
+const initialCards = [
   {
     name: 'fragmento de codigo html',
     link: 'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
@@ -64,16 +60,14 @@ const handleAddNewCard = (e) => {
   const newCard = new Card(title, url, '#template-photo')
   const cardElement = newCard.createCard()
 
-  photos.prepend(cardElement)
+  cards.prepend(cardElement)
 }
 
-initialPhotos.forEach((card) => {
+initialCards.forEach((card) => {
   const newCard = new Card(card.name, card.link, '#template-photo')
   const cardElement = newCard.createCard()
-  photos.appendChild(cardElement)
+  cards.appendChild(cardElement)
 })
-
-
 
 // agregue el evento submit en el document para que los formularios agregados dinamico del mobal
 document.addEventListener('submit', (e) => {
@@ -89,8 +83,6 @@ document.addEventListener('submit', (e) => {
     handleAddNewCard(e)
   }
 })
-
-
 
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
@@ -129,9 +121,7 @@ const loeadProfile = () => {
   } else {
     profileName.textContent = 'Nombre'
     profileState.textContent = 'Estado'
-
   }
 }
 
 loeadProfile()
-
