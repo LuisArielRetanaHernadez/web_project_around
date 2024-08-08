@@ -7,6 +7,8 @@ const btnModalAddCard = document.querySelector('.profile__button-add-target')
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
+const cards = document.querySelector('.elements__photos')
+
 let mobal = null
 let poppa = null
 
@@ -86,8 +88,8 @@ btnUpdateProfile.addEventListener('click', () => {
   document.querySelector('.page').appendChild(mobal)
 })
 
-const closeMobal = (className = '') => {
-  mobal.classList.remove(className ? className : 'mobal--active')
+const closeMobal = () => {
+  mobal.classList.remove('mobal--active')
   document.querySelector('.page').removeChild(mobal)
   mobal = null
 }
@@ -127,6 +129,48 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     mobal && closeMobal()
     poppa && closePoppa()
+  }
+})
+
+const heandleUpdateProfile = (e) => {
+  e.preventDefault()
+
+  const form = document.querySelector('#form-update-profile')
+  const inputs = form.querySelectorAll('input')
+
+  profileName.textContent = inputs[0].value
+  profileState.textContent = inputs[1].value
+
+  closeMobal()
+
+}
+
+const handleAddNewCard = (e) => {
+  e.preventDefault()
+  const form = document.querySelector('#form-add-card')
+  const inputs = form.querySelectorAll('input')
+  const title = inputs[0].value
+  const url = inputs[1].value
+
+  const newCard = new Card(title, url, '#template-photo')
+  const cardElement = newCard.createCard()
+
+  cards.prepend(cardElement)
+  closeMobal()
+}
+
+// agregue el evento submit en el document para que los formularios agregados dinamico del mobal
+document.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  // update profile
+  if (e.target.id === 'form-update-profile') {
+    heandleUpdateProfile(e)
+  }
+
+  // add new card
+  if (e.target.id === 'form-add-card') {
+    handleAddNewCard(e)
   }
 })
 

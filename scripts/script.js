@@ -4,8 +4,6 @@ import { FormValidator } from "./FormValidator.js"
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
-const cards = document.querySelector('.elements__photos')
-
 const initialCards = [
   {
     name: 'fragmento de codigo html',
@@ -33,55 +31,10 @@ const initialCards = [
   }
 ]
 
-
-const heandleUpdateProfile = (e) => {
-  e.preventDefault()
-
-  const form = document.querySelector('#form-update-profile')
-  const inputs = form.querySelectorAll('input')
-
-  profileName.textContent = inputs[0].value
-  profileState.textContent = inputs[1].value
-
-  setLocalStorage('profile', {
-    name: inputs[0].value,
-    state: inputs[1].value
-  })
-
-}
-
-const handleAddNewCard = (e) => {
-  e.preventDefault()
-  const form = document.querySelector('#form-add-card')
-  const inputs = form.querySelectorAll('input')
-  const title = inputs[0].value
-  const url = inputs[1].value
-
-  const newCard = new Card(title, url, '#template-photo')
-  const cardElement = newCard.createCard()
-
-  cards.prepend(cardElement)
-}
-
 initialCards.forEach((card) => {
   const newCard = new Card(card.name, card.link, '#template-photo')
   const cardElement = newCard.createCard()
   cards.appendChild(cardElement)
-})
-
-// agregue el evento submit en el document para que los formularios agregados dinamico del mobal
-document.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  // update profile
-  if (e.target.id === 'form-update-profile') {
-    heandleUpdateProfile(e)
-  }
-
-  // add new card
-  if (e.target.id === 'form-add-card') {
-    handleAddNewCard(e)
-  }
 })
 
 const observer = new MutationObserver((mutations) => {
@@ -105,23 +58,3 @@ const observer = new MutationObserver((mutations) => {
 })
 observer.observe(document.body, { childList: true, subtree: true })
 
-const setLocalStorage = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value))
-}
-
-const getLocalStorage = (key) => {
-  return JSON.parse(localStorage.getItem(key))
-}
-
-const loeadProfile = () => {
-  const profile = getLocalStorage('profile')
-  if (profile) {
-    profileName.textContent = profile.name
-    profileState.textContent = profile.state
-  } else {
-    profileName.textContent = 'Nombre'
-    profileState.textContent = 'Estado'
-  }
-}
-
-loeadProfile()
