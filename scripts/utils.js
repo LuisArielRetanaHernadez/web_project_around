@@ -34,7 +34,7 @@ const mobalFormAddCard = () => {
             </fieldset>
           </form>
   `
-  genereteMobal('', formAddCard, title)
+  genereteMobal(formAddCard, title)
 }
 
 const mobalUpadteProfile = () => {
