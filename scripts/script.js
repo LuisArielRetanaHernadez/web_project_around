@@ -37,9 +37,73 @@ initialCards.forEach((card) => {
   cards.appendChild(cardElement)
 })
 
+const heandleUpdateProfile = (e) => {
+  e.preventDefault()
+
+  const form = document.querySelector('#form-update-profile')
+  const inputs = form.querySelectorAll('input')
+
+  profileName.textContent = inputs[0].value
+  profileState.textContent = inputs[1].value
+
+  const mobal = document.querySelector('.mobal')
+  mobal && mobal.classList.remove('mobal--active')
+}
+
+const handleAddNewCard = (e) => {
+  e.preventDefault()
+  const form = document.querySelector('#form-add-card')
+  const inputs = form.querySelectorAll('input')
+  const title = inputs[0].value
+  const url = inputs[1].value
+
+  const newCard = new Card(title, url, '#template-photo')
+  const cardElement = newCard.createCard()
+
+  cards.prepend(cardElement)
+
+  const mobal = document.querySelector('.mobal')
+  mobal && mobal.classList.remove('mobal--active')
+}
+
+// agregue el evento submit en el document para que los formularios agregados dinamico del mobal
+document.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  // update profile
+  if (e.target.id === 'form-update-profile') {
+    heandleUpdateProfile(e)
+  }
+
+  // add new card
+  if (e.target.id === 'form-add-card') {
+    handleAddNewCard(e)
+  }
+})
+
+// crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
+
     if (mutation.type === 'childList') {
+
+
+      mobal?.addEventListener('click', (e) => {
+        if (e.target === mobal) {
+          closeMobal()
+        }
+      })
+
+      mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
+        closeMobal()
+      })
+
+      poppa?.addEventListener('click', (e) => {
+        if (e.target === poppa) {
+          closePoppa()
+        }
+      })
+
       const formAddCard = document.querySelector('#form-add-card')
       const formUpdateProfile = document.querySelector('#form-update-profile')
       if (formAddCard || formUpdateProfile) {
@@ -56,5 +120,4 @@ const observer = new MutationObserver((mutations) => {
     }
   })
 })
-observer.observe(document.body, { childList: true, subtree: true })
-
+observer.observe(document.querySelector('.page'), { childList: true })
