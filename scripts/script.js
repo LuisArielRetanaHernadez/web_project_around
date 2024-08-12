@@ -70,12 +70,10 @@ const handleAddNewCard = (e) => {
 document.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  // update profile
   if (e.target.id === 'form-update-profile') {
     heandleUpdateProfile(e)
   }
 
-  // add new card
   if (e.target.id === 'form-add-card') {
     handleAddNewCard(e)
   }
