@@ -16,4 +16,17 @@ export default class Popup {
       this.close();
     }
   };
+
+  _setEventListeners() {
+
+    this._popup.addEventListener("click", (evt) => {
+      if (evt.target === this._popup) {
+        this.close();
+      }
+    })
+
+    this._popup.querySelector(".popup__close").addEventListener("click", () => this.close());
+
+    document.addEventListener("keydown", this._handleEscClose);
+  }
 }
