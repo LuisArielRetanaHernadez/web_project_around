@@ -25,4 +25,10 @@ export default class Card {
 
     return this._element;
   }
+
+  _setEventListeners() {
+    this._element.querySelector('.photo__image').addEventListener('click', () => {
+      this._handleCardClick(this._name, this._url);
+    });
+  }
 }
