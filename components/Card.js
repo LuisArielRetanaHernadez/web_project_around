@@ -15,4 +15,14 @@ export default class Card {
 
     return cardElement;
   }
+
+  generetaCard() {
+    this._element = this._getTemplateCard();
+    this._element.querySelector('.photo__title').textContent = this._name;
+    this._element.querySelector('.photo__image').setAttribute('src', this._url);
+
+    this._setEventListeners();
+
+    return this._element;
+  }
 }
