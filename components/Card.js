@@ -31,4 +31,8 @@ export default class Card {
       this._handleCardClick(this._name, this._url);
     });
   }
+
+  _handleLikeClick() {
+    this._element.querySelector('.card__like').classList.toggle('photo__like_active');
+  }
 }
