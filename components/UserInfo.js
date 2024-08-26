@@ -4,4 +4,11 @@ export default class UserInfo {
     this._job = document.querySelector(jobSelector);
 
   }
+
+  getUserInfo() {
+    return {
+      name: this._name.textContent,
+      job: this._job.textContent
+    }
+  }
 }
