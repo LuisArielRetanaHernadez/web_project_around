@@ -35,4 +35,9 @@ export default class Card {
   _handleLikeClick() {
     this._element.querySelector('.card__like').classList.toggle('photo__like_active');
   }
+
+  _handleDeleteClick() {
+    this._element.remove();
+    this._element = null;
+  }
 }
