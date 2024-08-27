@@ -84,6 +84,8 @@ const form = new PopupWithForm('#form-update-profile', (valuesCard) => {
   cardsInitial.addItem(cardElement)
 })
 
+const formRenderer = new Section({ itmes: [] }, '.page')
+
 buttonNewCard.addEventListener('click', () => {
 })
 
