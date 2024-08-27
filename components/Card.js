@@ -20,28 +20,28 @@ export class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector('.photo__title').textContent = this._text;
-    this._element.querySelector('.photo__image').setAttribute('src', this._url);
+    this._element.querySelector('.card__title').textContent = this._text;
+    this._element.querySelector('.card__image').setAttribute('src', this._url);
 
     return this._element;
   }
 
   _setEventListeners() {
-    this._element.querySelector('.photo__image').addEventListener('click', () => {
+    this._element.querySelector('.card__image').addEventListener('click', () => {
       this._handleCardClick(this._text, this._url);
     });
 
-    this._element.querySelector('.photo__icon-love').addEventListener('click', () => {
+    this._element.querySelector('.card__icon-love').addEventListener('click', () => {
       this._likeCard();
     });
 
-    this._element.querySelector('.photo__icon-delete-image').addEventListener('click', () => {
+    this._element.querySelector('.card__icon-delete-image').addEventListener('click', () => {
       this._deleteCard();
     });
   }
 
   _likeCard() {
-    this._element.querySelector('.photo__icon-love').classList.toggle('photo__icon-love_active')
+    this._element.querySelector('.card__icon-love').classList.toggle('card_icon-love_active')
   }
 
   _deleteCard() {
