@@ -1,3 +1,5 @@
+import PopupWithImage from "../components/PopupWithImage.js"
+import Section from "../components/Section.js"
 import { Card } from "./Card.js"
 import { FormValidator } from "./FormValidator.js"
 
@@ -31,11 +33,30 @@ const initialCards = [
   }
 ]
 
-initialCards.forEach((card) => {
-  const newCard = new Card(card.name, card.link, '#template-photo')
-  const cardElement = newCard.createCard()
-  cards.appendChild(cardElement)
-})
+
+const cardsInitial = new Section({
+  data: initialCards,
+  renderer: (item) => {
+
+    const newCard = new Card(
+      {
+        text: item.name,
+        url: item.link
+      },
+      '#template-card',
+      (name, link) => {
+        const popupImage = new PopupWithImage('#template-poppa')
+        popupImage.open(name, link)
+      })
+
+    const cardElement = newCard.createCard()
+    cardsInitial.addItem(cardElement)
+  }
+}, '.elements__cards')
+
+// const newCard = new Card(card.name, card.link, '#template-photo')
+// const cardElement = newCard.createCard()
+// cards.appendChild(cardElement)
 
 const heandleUpdateProfile = (e) => {
   e.preventDefault()
