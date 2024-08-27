@@ -1,50 +1,50 @@
-export default class Card {
-  constructor({ name, url }, templateSelector, handleCardClick) {
-    this._name = name;
+export class Card {
+  constructor({ text, url }, selectorElement, handleCardClick) {
+    this._text = text;
     this._url = url;
-    this._templateSelector = templateSelector;
+    this._selectorElement = selectorElement
     this._handleCardClick = handleCardClick;
   }
 
-  _getTemplateCard() {
+  _getTemplate() {
     const cardElement = document
-      .querySelector(this._templateSelector)
+      .querySelector(this._selectorElement)
       .content
-      .querySelector('.card')
+      .querySelector('.photo')
       .cloneNode(true);
 
     return cardElement;
   }
 
-  generetaCard() {
-    this._element = this._getTemplateCard();
-    this._element.querySelector('.photo__title').textContent = this._name;
-    this._element.querySelector('.photo__image').setAttribute('src', this._url);
-
+  createCard() {
+    this._element = this._getTemplate();
     this._setEventListeners();
+
+    this._element.querySelector('.photo__title').textContent = this._text;
+    this._element.querySelector('.photo__image').setAttribute('src', this._url);
 
     return this._element;
   }
 
   _setEventListeners() {
     this._element.querySelector('.photo__image').addEventListener('click', () => {
-      this._handleCardClick(this._name, this._url);
+      this._handleCardClick(this._text, this._url);
     });
 
-    this._element.querySelector('.card__like').addEventListener('click', () => {
-      this._handleLikeClick();
-    })
+    this._element.querySelector('.photo__icon-love').addEventListener('click', () => {
+      this._likeCard();
+    });
 
-    this._element.querySelector('.card__delete').addEventListener('click', () => {
-      this._handleDeleteClick();
+    this._element.querySelector('.photo__icon-delete-image').addEventListener('click', () => {
+      this._deleteCard();
     });
   }
 
-  _handleLikeClick() {
-    this._element.querySelector('.card__like').classList.toggle('photo__like_active');
+  _likeCard() {
+    this._element.querySelector('.photo__icon-love').classList.toggle('photo__icon-love_active')
   }
 
-  _handleDeleteClick() {
+  _deleteCard() {
     this._element.remove();
     this._element = null;
   }
