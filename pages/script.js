@@ -3,6 +3,10 @@ import Section from "../components/Section.js"
 import { Card } from "./Card.js"
 import { FormValidator } from "./FormValidator.js"
 
+// constats 
+import { buttonNewCard } from "../constats/constats.js"
+import PopupWithForm from "../components/PopupWithForm.js"
+
 const profileName = document.querySelector('.profile__name')
 const profileState = document.querySelector('.profile__state')
 
@@ -70,6 +74,18 @@ const heandleUpdateProfile = (e) => {
   const mobal = document.querySelector('.mobal')
   mobal && mobal.classList.remove('mobal--active')
 }
+
+const form = new PopupWithForm('#form-update-profile', (valuesCard) => {
+  const { text, url } = valuesCard
+
+  const newCard = new Card({ text, url }, '#template-card')
+  const cardElement = newCard.createCard()
+
+  cardsInitial.addItem(cardElement)
+})
+
+buttonNewCard.addEventListener('click', () => {
+})
 
 
 // agregue el evento submit en el document para que los formularios agregados dinamico del mobal
