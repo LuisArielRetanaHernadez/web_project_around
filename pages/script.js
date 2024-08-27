@@ -71,21 +71,6 @@ const heandleUpdateProfile = (e) => {
   mobal && mobal.classList.remove('mobal--active')
 }
 
-const handleAddNewCard = (e) => {
-  e.preventDefault()
-  const form = document.querySelector('#form-add-card')
-  const inputs = form.querySelectorAll('input')
-  const title = inputs[0].value
-  const url = inputs[1].value
-
-  const newCard = new Card(title, url, '#template-photo')
-  const cardElement = newCard.createCard()
-
-  cards.prepend(cardElement)
-
-  const mobal = document.querySelector('.mobal')
-  mobal && mobal.classList.remove('mobal--active')
-}
 
 // agregue el evento submit en el document para que los formularios agregados dinamico del mobal
 document.addEventListener('submit', (e) => {
