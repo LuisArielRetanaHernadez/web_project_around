@@ -1,8 +1,9 @@
 export class Card {
-  constructor(text, url, selectorElement) {
+  constructor(text, url, selectorElement, handleCardClick) {
     this._text = text;
     this._url = url;
     this._selectorElement = selectorElement
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -26,6 +27,10 @@ export class Card {
   }
 
   _setEventListeners() {
+    this._element.querySelector('.photo__image').addEventListener('click', () => {
+      this._handleCardClick(this._name, this._url);
+    });
+
     this._element.querySelector('.photo__icon-love').addEventListener('click', () => {
       this._likeCard();
     });
