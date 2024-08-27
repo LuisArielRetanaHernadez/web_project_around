@@ -3,7 +3,7 @@
   max-width: 880px;
 }
 
-.elements__photos {
+.elements__cards {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 282px);
@@ -13,12 +13,12 @@
 
 /* photo */
 
-.elements__photo-content-image {
+.elements__card-content-image {
   width: 100%;
   height: 282px;
 }
 
-.elements__photo-about {
+.elements__card-about {
   width: 100%;
   height: calc(100% - 282px);
 }
@@ -29,7 +29,7 @@
   .elements {
     width: auto;
   }
-  .elements__photos {
+  .elements__cards {
     grid-template-columns: repeat(2, 282px);
     justify-content: center;
   }
@@ -38,7 +38,7 @@
 /* ........ media query max-width 950px ......... */
 
 @media screen and (max-width: 645px) {
-  .elements__photos {
+  .elements__cards {
     grid-template-columns: repeat(2, 235px);
   }
 }
@@ -49,7 +49,7 @@
   .elements {
     width: auto;
   }
-  .elements__photos {
+  .elements__cards {
     grid-template-columns: repeat(1, 282px);
   }
 }
