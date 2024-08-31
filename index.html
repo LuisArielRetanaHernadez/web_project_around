@@ -144,6 +144,54 @@
         </div>
       </div>
 
+      <!-- Popup to open the update profile form -->
+      <div class="popup">
+        <div class="popup__card">
+          <span class="icon popup__icon-close">
+            <img
+              class="icon__image popup__icon-close-image"
+              src="./images/close.png"
+              alt="icon delete"
+            />
+          </span>
+          <h2 class="popup__title">Actualiza tu perfil</h2>
+          <div class="popup__content">
+            <form class="form mobal__form" id="form-update-profile" action="">
+              <div class="form__field-component">
+                <input class="form__input mobal__form-input"
+                id="input-profile-name" required minlength="7" maxlength="15"
+                type=text" />
+                <span
+                  class="form__error-message"
+                  id="input-profile-name-error"
+                ></span>
+              </div>
+
+              <div class="form__field-component">
+                <input
+                  class="form__input mobal__form-input"
+                  id="input-profile-state"
+                  required
+                  minlength="7"
+                  maxlength="15"
+                  type="text"
+                />
+                <span
+                  class="form__error-message"
+                  id="input-profile-state-error"
+                ></span>
+              </div>
+
+              <button
+                class="button form__button-submit mobal__button-submit"
+                id="button-update-profile"
+                type="submit"
+              ></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- Popup to open the imagen of selected card -->
       <div class="popup">
         <div class="popup__content">
