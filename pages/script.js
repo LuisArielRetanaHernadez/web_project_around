@@ -75,20 +75,6 @@ const form = new PopupWithForm('#form-update-profile', (valuesCard) => {
 buttonNewCard.addEventListener('click', () => {
 })
 
-
-// agregue el evento submit en el document para que los formularios agregados dinamico del mobal
-document.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  if (e.target.id === 'form-update-profile') {
-    heandleUpdateProfile(e)
-  }
-
-  if (e.target.id === 'form-add-card') {
-    handleAddNewCard(e)
-  }
-})
-
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
