@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
   constructor({ text, url }, selectorElement, handleCardClick) {
     this._text = text;
     this._url = url;
