@@ -1,7 +1,9 @@
 import PopupWithImage from "../components/PopupWithImage.js"
+import PopupWithForm from "../components/PopupWithForm.js"
+
 import Section from "../components/Section.js"
-import { Card } from "./Card.js"
-import { FormValidator } from "./FormValidator.js"
+import { Card } from "../components/Card.js"
+import { FormValidator } from "../components/FormValidator.js"
 
 // constats 
 import {
@@ -9,7 +11,7 @@ import {
   profileName,
   profileState
 } from "../constats/constats.js"
-import PopupWithForm from "../components/PopupWithForm.js"
+
 
 const initialCards = [
   {
