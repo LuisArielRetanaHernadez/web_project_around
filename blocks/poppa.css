@@ -1,4 +1,4 @@
-.poppa {
+.popop {
   width: 100%;
   height: 100vh;
   background-color: #00000054;
@@ -11,20 +11,20 @@
   z-index: 10;
 }
 
-.poppa--active {
+.popop--active {
   display: flex;
 }
 
-.poppa__content {
+.popop__content {
   width: auto;
   height: auto;
   position: relative;
 }
 
-.poppa__content-image {
+.popop__content-image {
 }
 
-.poppa__image {
+.popop__image {
   width: 100%;
   height: 100%;
   max-width: 75vw;
@@ -32,14 +32,14 @@
   object-fit: cover;
 }
 
-.poppa__title {
+.popop__title {
   margin-top: 10px;
   color: #fff;
 }
 
 /* .... button close .... */
 
-.poppa__icon-close {
+.popop__icon-close {
   width: 40px;
   height: 40px;
   padding: 0;
@@ -50,7 +50,7 @@
   right: -45px;
 }
 
-.poppa__icon-close-image {
+.popop__icon-close-image {
   background-color: transparent;
   object-fit: cover;
   width: 100%;
