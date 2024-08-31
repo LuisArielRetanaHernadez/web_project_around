@@ -4,7 +4,11 @@ import { Card } from "./Card.js"
 import { FormValidator } from "./FormValidator.js"
 
 // constats 
-import { buttonNewCard } from "../constats/constats.js"
+import {
+  buttonNewCard,
+  profileName,
+  profileState
+} from "../constats/constats.js"
 import PopupWithForm from "../components/PopupWithForm.js"
 
 const initialCards = [
