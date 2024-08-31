@@ -7,9 +7,6 @@ import { FormValidator } from "./FormValidator.js"
 import { buttonNewCard } from "../constats/constats.js"
 import PopupWithForm from "../components/PopupWithForm.js"
 
-const profileName = document.querySelector('.profile__name')
-const profileState = document.querySelector('.profile__state')
-
 const initialCards = [
   {
     name: 'fragmento de codigo html',
