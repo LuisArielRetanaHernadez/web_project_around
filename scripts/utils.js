@@ -69,41 +69,8 @@ const mobalUpadteProfile = () => {
   genereteMobal(formUpdate, title)
 }
 
-const genereteMobal = (content, title) => {
-  const peronalizeMobal = templateMobal.content.cloneNode(true).querySelector('.mobal')
-  peronalizeMobal.querySelector('.mobal__title').textContent = title
-  peronalizeMobal.querySelector('.mobal__content').innerHTML = content
-  mobal = peronalizeMobal
-}
 
-btnModalAddCard.addEventListener('click', () => {
-  mobalFormAddCard()
-  mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild(mobal)
-})
 
-btnUpdateProfile.addEventListener('click', () => {
-  mobalUpadteProfile()
-  mobal.classList.add('mobal--active')
-  document.querySelector('.page').appendChild(mobal)
-})
-
-const closeMobal = () => {
-  mobal.classList.remove('mobal--active')
-  document.querySelector('.page').removeChild(mobal)
-  mobal = null
-}
-
-const openPoppa = () => {
-  poppa = document.querySelector('.poppa')
-  poppa.classList.add('poppa--active')
-}
-
-const closePoppa = () => {
-  poppa.classList.remove('poppa--active')
-  document.querySelector('.page').removeChild(poppa)
-  poppa = null
-}
 
 
 
