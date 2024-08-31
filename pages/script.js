@@ -63,19 +63,6 @@ const cardsInitial = new Section({
 // const cardElement = newCard.createCard()
 // cards.appendChild(cardElement)
 
-const heandleUpdateProfile = (e) => {
-  e.preventDefault()
-
-  const form = document.querySelector('#form-update-profile')
-  const inputs = form.querySelectorAll('input')
-
-  profileName.textContent = inputs[0].value
-  profileState.textContent = inputs[1].value
-
-  const mobal = document.querySelector('.mobal')
-  mobal && mobal.classList.remove('mobal--active')
-}
-
 const form = new PopupWithForm('#form-update-profile', (valuesCard) => {
   const { text, url } = valuesCard
 
