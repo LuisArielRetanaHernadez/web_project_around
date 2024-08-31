@@ -105,25 +105,7 @@ const closePoppa = () => {
   poppa = null
 }
 
-const poppaImage = (image, name) => {
-  poppa = templatePoppa.content.cloneNode(true).querySelector('.poppa')
-  poppa.querySelector('.poppa__image').setAttribute('src', image)
-  poppa.querySelector('.poppa__title').textContent = name
-  poppa.querySelector('.poppa__icon-close').addEventListener('click', () => {
-    closePoppa()
-  })
-  document.querySelector('.page').appendChild(poppa)
-  openPoppa()
-}
 
-document.querySelector('.elements__photos').addEventListener('click', (e) => {
-  if (e.target.classList.contains('photo__image')) {
-    const photo = e.target.closest('.photo')
-    const title = photo.querySelector('.photo__title').textContent
-    const url = e.target.getAttribute('src')
-    poppaImage(url, title)
-  }
-})
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
