@@ -52,7 +52,8 @@ const cardsInitial = new Section({
       },
       '#template-card',
       (name, link) => {
-        const popupImage = new PopupWithImage('#template-poppa')
+        console.log(name, link)
+        const popupImage = new PopupWithImage('.popup--imagen-card')
         popupImage.open(name, link)
       })
 
