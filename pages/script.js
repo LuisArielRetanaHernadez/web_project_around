@@ -68,7 +68,7 @@ cardsInitial.renderer()
 // const cardElement = newCard.createCard()
 // cards.appendChild(cardElement)
 
-const form = new PopupWithForm('.popup--create-card', (valuesCard) => {
+const formNewCard = new PopupWithForm('.popup--create-card', (valuesCard) => {
   const { text, url } = valuesCard
 
   const newCard = new Card({ text, url }, '#template-card', (name, link) => {
@@ -83,6 +83,7 @@ const form = new PopupWithForm('.popup--create-card', (valuesCard) => {
 })
 
 buttonNewCard.addEventListener('click', () => {
+  formNewCard.open()
 })
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
