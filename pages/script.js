@@ -42,7 +42,7 @@ const initialCards = [
 
 
 const cardsInitial = new Section({
-  data: initialCards,
+  items: initialCards,
   renderer: (item) => {
 
     const newCard = new Card(
@@ -61,6 +61,7 @@ const cardsInitial = new Section({
   }
 }, '.elements__cards')
 
+cardsInitial.renderer()
 // const newCard = new Card(card.name, card.link, '#template-photo')
 // const cardElement = newCard.createCard()
 // cards.appendChild(cardElement)
