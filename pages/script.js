@@ -68,10 +68,15 @@ cardsInitial.renderer()
 // const cardElement = newCard.createCard()
 // cards.appendChild(cardElement)
 
-const form = new PopupWithForm('#form-update-profile', (valuesCard) => {
+const form = new PopupWithForm('.popup--create-card', (valuesCard) => {
   const { text, url } = valuesCard
 
-  const newCard = new Card({ text, url }, '#template-card')
+  const newCard = new Card({ text, url }, '#template-card', (name, link) => {
+    const popupImage = new PopupWithImage('.popup--imagen-card')
+    popupImage.setEventListeners()
+    popupImage.open(name, link)
+  })
+
   const cardElement = newCard.createCard()
 
   cardsInitial.addItem(cardElement)
