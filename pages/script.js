@@ -54,6 +54,7 @@ const cardsInitial = new Section({
       (name, link) => {
         console.log(name, link)
         const popupImage = new PopupWithImage('.popup--imagen-card')
+        popupImage.setEventListeners()
         popupImage.open(name, link)
       })
 
