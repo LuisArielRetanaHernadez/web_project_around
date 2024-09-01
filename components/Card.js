@@ -10,7 +10,7 @@ export default class Card {
     const cardElement = document
       .querySelector(this._selectorElement)
       .content
-      .querySelector('.photo')
+      .querySelector('.card')
       .cloneNode(true);
 
     return cardElement;
