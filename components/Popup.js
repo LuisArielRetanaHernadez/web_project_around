@@ -17,7 +17,7 @@ export default class Popup {
     }
   };
 
-  _setEventListeners() {
+  setEventListeners() {
 
     this._popup.addEventListener("click", (evt) => {
       if (evt.target === this._popup) {
