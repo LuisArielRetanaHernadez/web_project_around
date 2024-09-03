@@ -52,6 +52,32 @@ popup--create-card .popup__title {
   font-weight: 900;
 }
 
+/* ..... form ..... */
+
+.popup__form {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__form-field-set {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__form-input {
+  width: 100%;
+}
+
+.popup__button-submit {
+  border-radius: 0;
+  transition: all 0.1s;
+}
+
+.popup__button-submit:hover {
+  background-color: #000000c5;
+}
+
 /* .... button close .... */
 
 .popup__icon-close {
