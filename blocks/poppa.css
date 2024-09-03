@@ -96,3 +96,41 @@ popup--create-card .popup__title {
   object-fit: cover;
   width: 100%;
 }
+
+/* ........ media query max-width 645px ......... */
+
+@media screen and (max-width: 645px) {
+  .popup--update-profile,
+  .popup--create-card .mobal__icon-close {
+    top: -20%;
+    right: 0%;
+  }
+}
+
+/* ........ media query max-width 545px ......... */
+
+@media screen and (max-width: 545px) {
+  .popup--update-profile,
+  .popup--create-card .popup__card {
+    margin: 0 20px;
+  }
+
+  .popup--update-profile,
+  .popup--create-card .popup__title {
+    font-size: 18px;
+  }
+
+  .popup--update-profile,
+  .popup--create-card .mobal__button-submit,
+  .mobal__form-input {
+    font-size: 14px;
+  }
+
+  .popup--update-profile,
+  .popup--create-card .mobal__icon-close {
+    width: 26px;
+    height: 26px;
+    top: -15%;
+    right: 0%;
+  }
+}
