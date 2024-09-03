@@ -45,6 +45,13 @@
   color: #fff;
 }
 
+.popup--update-profile,
+popup--create-card .popup__title {
+  margin-bottom: 54px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
 /* .... button close .... */
 
 .popup__icon-close {
