@@ -15,7 +15,7 @@
   display: flex;
 }
 
-.popup_card {
+.popup__card {
   width: 430px;
   padding: 34px 35px;
   border-radius: 10px;
@@ -46,7 +46,8 @@
 }
 
 .popup--update-profile,
-popup--create-card .popup__title {
+.popup--create-card .popup__title {
+  color: #000000c5;
   margin-bottom: 54px;
   font-size: 24px;
   font-weight: 900;
