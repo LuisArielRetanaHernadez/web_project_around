@@ -45,7 +45,7 @@
   color: #fff;
 }
 
-.popup--update-profile,
+.popup--update-profile .popup__title,
 .popup--create-card .popup__title {
   color: #000000c5;
   margin-bottom: 54px;
