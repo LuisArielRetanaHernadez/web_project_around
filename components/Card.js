@@ -41,7 +41,7 @@ export default class Card {
   }
 
   _likeCard() {
-    this._element.querySelector('.card__icon-love').classList.toggle('card_icon-love_active')
+    this._element.querySelector('.card__icon-love').classList.toggle('card__icon-love_active')
   }
 
   _deleteCard() {
