@@ -8,6 +8,7 @@ export default class Popup {
   }
 
   close() {
+    console.log('close form Popup')
     this._popup.classList.remove("popup--active");
   }
 

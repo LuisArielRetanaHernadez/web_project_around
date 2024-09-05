@@ -84,6 +84,7 @@ const formNewCard = new PopupWithForm('.popup--create-card', (valuesCard) => {
 
 buttonNewCard.addEventListener('click', () => {
   formNewCard.open()
+  formNewCard.setEventListeners()
 })
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close

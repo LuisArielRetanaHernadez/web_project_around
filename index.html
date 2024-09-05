@@ -105,7 +105,7 @@
           <h2 class="popup__title">Agrega una tarjeta</h2>
           <div class="popup__content">
             <form
-              class="form mobal__form"
+              class="form popup__form"
               data-form-select="true"
               id="form-add-card"
               action=""
@@ -160,7 +160,7 @@
           <h2 class="popup__title">Actualiza tu perfil</h2>
 
           <div class="popup__content">
-            <form class="form mobal__form" id="form-update-profile" action="">
+            <form class="form popup__form" id="form-update-profile" action="">
               <div class="form__field-component">
                 <input class="form__input popup__form-input"
                 id="input-profile-name" required minlength="7" maxlength="15"
@@ -198,7 +198,7 @@
 
       <!-- Popup to open the imagen of selected card -->
       <div class="popup popup--imagen-card">
-        <div class="popup__card">
+        <div class="popup__content">
           <span class="icon popup__icon-close">
             <img
               class="icon__image popup__icon-close-image"
@@ -206,12 +206,10 @@
               alt="icon delete"
             />
           </span>
-          <div class="popup__content">
-            <div class="popup__content-image">
-              <img class="popup__image" />
-            </div>
-            <p class="popup__title"></p>
+          <div class="popup__content-image">
+            <img class="popup__image" />
           </div>
+          <p class="popup__title"></p>
         </div>
       </div>
     </div>
