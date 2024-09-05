@@ -97,6 +97,10 @@ const formUpdateProfile = new PopupWithForm('.popup--update-profile', (valuesUpd
 buttonEditProfile.addEventListener('click', () => {
   formUpdateProfile.open()
   formUpdateProfile.setEventListeners()
+  const formInputs = formUpdateProfile._popup.querySelectorAll('.form__input')
+  formInputs[0].value = profileName.textContent
+  formInputs[1].value = profileState.textContent
+
 })
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
