@@ -47,7 +47,7 @@ const cardsInitial = new Section({
 
     const newCard = new Card(
       {
-        text: item.name,
+        title: item.name,
         url: item.link
       },
       '#template-card',
