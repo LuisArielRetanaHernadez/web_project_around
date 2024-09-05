@@ -7,6 +7,7 @@ import FormValidator from "../components/FormValidator.js"
 
 // constats 
 import {
+  buttonEditProfile,
   buttonNewCard,
   profileName,
   profileState
@@ -91,6 +92,11 @@ const formUpdateProfile = new PopupWithForm('.popup--update-profile', (valuesUpd
   const { name, state } = valuesUpdate
   profileName.textContent = name
   profileState.textContent = state
+})
+
+buttonEditProfile.addEventListener('click', () => {
+  formUpdateProfile.open()
+  formUpdateProfile.setEventListeners()
 })
 
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
