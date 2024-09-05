@@ -87,6 +87,12 @@ buttonNewCard.addEventListener('click', () => {
   formNewCard.setEventListeners()
 })
 
+const formUpdateProfile = new PopupWithForm('.popup--update-profile', (valuesUpdate) => {
+  const { name, state } = valuesUpdate
+  profileName.textContent = name
+  profileState.textContent = state
+})
+
 // crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
