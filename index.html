@@ -111,9 +111,16 @@
               action=""
             >
               <div class="form__field-component">
-                <input type="text" class="form__input popup__form-input"
-                id="input-profile-name" required minlength="2" maxlength="30"
-                type=text" placeholder='title' />
+                <input
+                  type="text"
+                  id="input-profile-name"
+                  class="form__input popup__form-input"
+                  name="title"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  placeholder="title"
+                />
                 <span
                   class="form__error-message"
                   id="input-profile-name-error"
@@ -124,6 +131,7 @@
                 <input
                   class="form__input popup__form-input"
                   id="input-profile-url-image"
+                  name="url"
                   required
                   type="url"
                   placeholder="url"

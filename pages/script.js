@@ -69,9 +69,9 @@ cardsInitial.renderer()
 // cards.appendChild(cardElement)
 
 const formNewCard = new PopupWithForm('.popup--create-card', (valuesCard) => {
-  const { text, url } = valuesCard
+  const { title, url } = valuesCard
 
-  const newCard = new Card({ text, url }, '#template-card', (name, link) => {
+  const newCard = new Card({ title, url }, '#template-card', (name, link) => {
     const popupImage = new PopupWithImage('.popup--imagen-card')
     popupImage.setEventListeners()
     popupImage.open(name, link)
