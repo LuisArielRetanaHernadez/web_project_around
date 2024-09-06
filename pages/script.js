@@ -101,45 +101,14 @@ buttonEditProfile.addEventListener('click', () => {
   formInputs[0].value = profileName.textContent
   formInputs[1].value = profileState.textContent
 
+  new FormValidator({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__button-submit',
+    inactiveButtonClass: 'form__button-submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: '.form__error_visible'
+  }, formUpdateProfile._popup).enableValidation()
+
 })
 
-// crear un observador para observar la variable $mobal para saber si tiene un mobal asignado como valor para incertar las funciones de close
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-
-    if (mutation.type === 'childList') {
-
-
-      mobal?.addEventListener('click', (e) => {
-        if (e.target === mobal) {
-          closeMobal()
-        }
-      })
-
-      mobal?.querySelector('.mobal__icon-close').addEventListener('click', () => {
-        closeMobal()
-      })
-
-      poppa?.addEventListener('click', (e) => {
-        if (e.target === poppa) {
-          closePoppa()
-        }
-      })
-
-      const formAddCard = document.querySelector('#form-add-card')
-      const formUpdateProfile = document.querySelector('#form-update-profile')
-      if (formAddCard || formUpdateProfile) {
-        const formCreateCard = new FormValidator({
-          formSelector: '.form',
-          inputSelector: '.form__input',
-          submitButtonSelector: '.form__button-submit',
-          inactiveButtonClass: 'form__button-submit_disabled',
-          inputErrorClass: 'form__input_type_error',
-          errorClass: '.form__error_visible'
-        }, formAddCard || formUpdateProfile)
-        formCreateCard.enableValidation()
-      }
-    }
-  })
-})
-observer.observe(document.querySelector('.page'), { childList: true })
