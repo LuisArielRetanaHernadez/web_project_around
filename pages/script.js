@@ -86,6 +86,14 @@ const formNewCard = new PopupWithForm('.popup--create-card', (valuesCard) => {
 buttonNewCard.addEventListener('click', () => {
   formNewCard.open()
   formNewCard.setEventListeners()
+  new FormValidator({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__button-submit',
+    inactiveButtonClass: 'form__button-submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: '.form__error_visible'
+  }, formNewCard._popup).enableValidation()
 })
 
 const formUpdateProfile = new PopupWithForm('.popup--update-profile', (valuesUpdate) => {
