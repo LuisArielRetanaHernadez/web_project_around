@@ -11,7 +11,7 @@ import {
   buttonNewCard,
   profileName,
   profileState
-} from "../constats/constats.js"
+} from "../constants/constants.js"
 
 
 const initialCards = [
