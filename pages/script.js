@@ -5,6 +5,9 @@ import Section from "../components/Section.js"
 import Card from "../components/Card.js"
 import FormValidator from "../components/FormValidator.js"
 
+// style
+import './index.css'
+
 // constats 
 import {
   buttonEditProfile,
