@@ -33,9 +33,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebapckPlugin({
-      template: "./pages/index.html",
-      filename: "index.html",
-      inject: "body"
+      template: "./index.html",
     })
   ]
 }
