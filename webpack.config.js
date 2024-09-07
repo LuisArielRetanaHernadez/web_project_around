@@ -1,5 +1,7 @@
 const path = require("path");
 
+const HtmlWebapckPlugin = require("html-webpack-plugin")
+
 module.exports = {
   entry: {
     main: "./pages/script.js"
@@ -10,6 +12,7 @@ module.exports = {
     publicPath: "",
     clean: true,
   },
+  stats: { children: true },
   mode: "development",
   devServer: {
     static: {
@@ -27,5 +30,12 @@ module.exports = {
         exclude: "/node_modules/"
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebapckPlugin({
+      template: "./pages/index.html",
+      filename: "index.html",
+      inject: "body"
+    })
+  ]
 }
