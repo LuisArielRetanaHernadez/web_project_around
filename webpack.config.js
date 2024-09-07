@@ -1,6 +1,8 @@
 const path = require("path");
 
 const HtmlWebapckPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = {
   entry: {
@@ -28,12 +30,17 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: "/node_modules/"
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, { loader: "css-loader" }]
       }
     ]
   },
   plugins: [
     new HtmlWebapckPlugin({
       template: "./index.html",
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 }
