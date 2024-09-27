@@ -48,4 +48,18 @@ export default class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
   }
+
+  // users
+
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+  }
 }
