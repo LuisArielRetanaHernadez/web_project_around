@@ -5,3 +5,4 @@ export const profileName = document.querySelector('.profile__name')
 export const profileState = document.querySelector('.profile__state')
 export const TOKEN = 'd7d7e0e3-7d7d-4d7d-7d7d-7d7d7d7d7d7d'
 export const GroupId = 'XXXXXXX'
+export const URL_BASE = 'https://around.nomoreparties.co/v1/'
