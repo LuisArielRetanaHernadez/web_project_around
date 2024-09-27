@@ -62,4 +62,21 @@ export default class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
   }
+
+  updateUserInfo(name, about) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        about: about
+      })
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+  }
 }
