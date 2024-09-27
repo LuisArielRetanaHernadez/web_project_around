@@ -228,6 +228,22 @@
           <p class="popup__title"></p>
         </div>
       </div>
+
+      <div class="popup popup--delete-card popup--active">
+        <div class="popup__card">
+          <span class="icon popup__icon-close">
+            <img
+              class="icon__image popup__icon-close-image"
+              src="<%= require('./images/close.png')%>"
+              alt="icon delete"
+            />
+          </span>
+          <h2 class="popup__title">¿Estás seguro?</h2>
+          <div class="popup__content">
+            <button class="button popup__button">Si</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="./pages/script.js"></script>
     <script type="module" src="./components/Card.js"></script>
