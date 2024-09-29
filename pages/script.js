@@ -125,10 +125,13 @@ buttonNewCard.addEventListener('click', () => {
   }, formNewCard._popup).enableValidation()
 })
 
-const formUpdateProfile = new PopupWithForm('.popup--update-profile', (valuesUpdate) => {
+const formUpdateProfile = new PopupWithForm('.popup--update-profile', async (valuesUpdate) => {
   const { name, state } = valuesUpdate
-  profileName.textContent = name
-  profileState.textContent = state
+  const user = await api.updateUserInfo({ name, about: state })
+  if (user) {
+    const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state' })
+    userInfo.setUserInfo(name, state)
+  }
 })
 
 buttonEditProfile.addEventListener('click', () => {
