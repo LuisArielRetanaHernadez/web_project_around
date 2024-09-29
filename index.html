@@ -237,6 +237,46 @@
         </div>
       </div>
 
+      <!-- popup update image user me -->
+
+      <div class="popup popup--upload-avatar-user-me">
+        <div class="popup__card">
+          <span class="icon popup__icon-close">
+            <img
+              class="icon__image popup__icon-close-image"
+              src="<%= require('./images/close.png')%>"
+              alt="icon delete"
+            />
+          </span>
+          <h2 class="popup__title">Cambiar foto de perfil</h2>
+          <div class="popup__content">
+            <form class="form popup__form" action="">
+              <div class="form__field-component">
+                <input
+                  class="form__input popup__form-input"
+                  id="input-avatar-profile"
+                  name="image-user-me"
+                  type="url"
+                  required
+                />
+                <span
+                  class="form__error-message"
+                  id="input-profile-name-error"
+                ></span>
+              </div>
+
+              <button
+                class="button form__button-submit popup__button"
+                id="button-update-profile"
+                type="submit"
+              >
+                Guardar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div class="popup popup--delete-card">
         <div class="popup__card">
           <span class="icon popup__icon-close">
