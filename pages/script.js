@@ -14,8 +14,20 @@ import {
   buttonEditProfile,
   buttonNewCard,
   profileName,
-  profileState
+  profileState,
+  TOKEN,
+  GroupId,
+  URL_BASE
 } from "../constants/constants.js"
+import Api from "../components/Api.js"
+
+const api = new Api({
+  baseUrl: `${URL_BASE}/v1/${GroupId}`,
+  headers: {
+    authorization: TOKEN,
+    'Content-Type': 'application/json'
+  }
+})
 
 
 const initialCards = [
@@ -73,18 +85,23 @@ cardsInitial.renderer()
 // const cardElement = newCard.createCard()
 // cards.appendChild(cardElement)
 
-const formNewCard = new PopupWithForm('.popup--create-card', (valuesCard) => {
+const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) => {
   const { title, url } = valuesCard
 
-  const newCard = new Card({ title, url }, '#template-card', (name, link) => {
-    const popupImage = new PopupWithImage('.popup--imagen-card')
-    popupImage.setEventListeners()
-    popupImage.open(name, link)
-  })
+  const card = api.createCard({ name: title, link: url })
 
-  const cardElement = newCard.createCard()
+  if (card) {
+    const newCard = new Card({ title, url }, '#template-card', (name, link) => {
+      const popupImage = new PopupWithImage('.popup--imagen-card')
+      popupImage.setEventListeners()
+      popupImage.open(name, link)
+    })
 
-  cardsInitial.addItem(cardElement)
+    const cardElement = newCard.createCard()
+
+    cardsInitial.addItem(cardElement)
+  }
+
 })
 
 buttonNewCard.addEventListener('click', () => {
