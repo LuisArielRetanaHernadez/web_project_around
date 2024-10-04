@@ -1,5 +1,6 @@
 export const buttonNewCard = document.querySelector('.profile__button-add-target')
 export const buttonEditProfile = document.querySelector('.profile__button-update-profile')
+export const buttonEditAvatar = document.querySelector('.profile__image-update-content')
 export const containerCards = document.querySelector('.elements__card')
 export const profileName = document.querySelector('.profile__name')
 export const profileState = document.querySelector('.profile__state')
