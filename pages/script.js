@@ -110,10 +110,10 @@ userInfo.setAvatar(user.avatar)
 
 const formUpdateProfile = new PopupWithForm('.popup--update-profile', async (valuesUpdate) => {
   const { name, state } = valuesUpdate
-  const user = await api.updateUserInfo({ name, about: state })
+  const user = await api.updateUserInfo(name, state)
   if (user) {
     const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state' })
-    userInfo.setUserInfo(name, state)
+    userInfo.setUserInfo({ name: user.name, job: user.about })
   }
 })
 
