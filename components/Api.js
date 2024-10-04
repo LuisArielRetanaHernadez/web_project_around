@@ -112,4 +112,18 @@ export default class Api {
     }
     return await Promise.reject(`Error: ${res.status}`);
   }
+
+  async updateAvatarUser(avatar) {
+    const res = await fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar
+      })
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
+  }
 }
