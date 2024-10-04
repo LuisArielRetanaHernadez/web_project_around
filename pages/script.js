@@ -96,6 +96,18 @@ buttonNewCard.addEventListener('click', () => {
   }, formNewCard._popup).enableValidation()
 })
 
+const initialUser = async () => {
+  const user = await api.getUserInfo()
+  console.log('initial user -> ', user)
+  return user
+}
+
+const user = await initialUser()
+const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
+
+userInfo.setUserInfo({ name: user.name, job: user.about })
+userInfo.setAvatar(user.avatar)
+
 const formUpdateProfile = new PopupWithForm('.popup--update-profile', async (valuesUpdate) => {
   const { name, state } = valuesUpdate
   const user = await api.updateUserInfo({ name, about: state })

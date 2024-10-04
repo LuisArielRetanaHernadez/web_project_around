@@ -3,6 +3,7 @@ export const buttonEditProfile = document.querySelector('.profile__button-update
 export const containerCards = document.querySelector('.elements__card')
 export const profileName = document.querySelector('.profile__name')
 export const profileState = document.querySelector('.profile__state')
+export const profileImage = document.querySelector('.profile__image')
 export const TOKEN = '0bde4dfd-272d-45a8-acdc-8bd77ebd5e3d'
 export const GroupId = 'web-es-cohort-16'
 export const URL_BASE = 'https://around.nomoreparties.co'
