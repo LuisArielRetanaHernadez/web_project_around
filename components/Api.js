@@ -2,41 +2,36 @@ export default class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
     this._headers = options.headers;
-    this.body = options.body;
-    this._token = options.token;
-    this._contentType = options.contentType;
   }
 
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+  async getInitialCards() {
+    const res = await fetch(`${this._baseUrl}/cards`, {
+      method: 'GET',
       headers: this._headers
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+    if (res.ok) {
+      console.log(res);
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
-  createCard(name, link) {
-    return fetch(`${this._baseUrl}/cards`, {
+  async createCard(name, link) {
+    const res = await fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link
       })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
-  deleteCard(cardId) {
+  async deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
@@ -51,7 +46,7 @@ export default class Api {
 
   // likes card
 
-  likeCard(cardId) {
+  async likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers
@@ -64,7 +59,7 @@ export default class Api {
       })
   }
 
-  likeCardDelete(cardId) {
+  async likeCardDelete(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
@@ -79,48 +74,42 @@ export default class Api {
 
   // users
 
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
+  async getUserInfo() {
+    const res = await fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
-  getUserAvatar(avatar) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+  async getUserAvatar(avatar) {
+    const res = await fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         avatar: avatar
       })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
-  updateUserInfo(name, about) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  async updateUserInfo(name, about) {
+    const res = await fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         about: about
       })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 }

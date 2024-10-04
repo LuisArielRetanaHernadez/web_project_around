@@ -22,15 +22,16 @@ import {
 import Api from "../components/Api.js"
 
 const api = new Api({
-  baseUrl: `${URL_BASE}/v1/${GroupId}`,
+  baseUrl: `https://around.nomoreparties.co/v1/web-es-cohort-16`,
   headers: {
     authorization: TOKEN,
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json"
   }
 })
 
 const initialCards = async () => {
-  const cards = await api.getCards()
+  const cards = await api.getInitialCards()
+  console.log('cards -> ', cards)
   if (cards) {
     return cards
   }
