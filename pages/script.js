@@ -139,7 +139,7 @@ buttonEditProfile.addEventListener('click', () => {
 buttonEditAvatar.addEventListener('click', () => {
   const formUpdateAvatar = new PopupWithForm('.popup--upload-avatar-user-me', async (valuesAvatar) => {
     const { avatar } = valuesAvatar
-    const user = await api.updateAvatar(avatar)
+    const user = await api.updateAvatarUser(avatar)
     if (user) {
       const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
       userInfo.setAvatar(user.avatar)
