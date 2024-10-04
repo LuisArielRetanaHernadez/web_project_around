@@ -16,7 +16,7 @@ export default class Api {
     return await Promise.reject(`Error: ${res.status}`);
   }
 
-  async createCard(name, link) {
+  async createCard({ name, link }) {
     const res = await fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,

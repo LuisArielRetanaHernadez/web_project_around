@@ -65,7 +65,9 @@ cardsInitial.renderer()
 const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) => {
   const { title, url } = valuesCard
 
-  const card = api.createCard({ name: title, link: url })
+  const card = await api.createCard(title, url)
+
+  console.log('new card ', card)
 
   if (card) {
     const newCard = new Card({ title, url }, '#template-card', (name, link) => {
