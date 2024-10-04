@@ -17,7 +17,8 @@ import {
   profileState,
   TOKEN,
   GroupId,
-  URL_BASE
+  URL_BASE,
+  buttonEditAvatar
 } from "../constants/constants.js"
 import Api from "../components/Api.js"
 
@@ -133,5 +134,26 @@ buttonEditProfile.addEventListener('click', () => {
     errorClass: '.form__error_visible'
   }, formUpdateProfile._popup).enableValidation()
 
+})
+
+buttonEditAvatar.addEventListener('click', () => {
+  const formUpdateAvatar = new PopupWithForm('.popup--upload-avatar-user-me', async (valuesAvatar) => {
+    const { avatar } = valuesAvatar
+    const user = await api.updateAvatar(avatar)
+    if (user) {
+      const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
+      userInfo.setAvatar(user.avatar)
+    }
+  })
+  formUpdateAvatar.open()
+  formUpdateAvatar.setEventListeners()
+  new FormValidator({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__button-submit',
+    inactiveButtonClass: 'form__button-submit_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: '.form__error_visible'
+  }, formUpdateAvatar._popup).enableValidation()
 })
 
