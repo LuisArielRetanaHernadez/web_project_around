@@ -22,7 +22,7 @@ import {
 import Api from "../components/Api.js"
 
 const api = new Api({
-  baseUrl: `https://around.nomoreparties.co/v1/web-es-cohort-16`,
+  baseUrl: `${URL_BASE}/v1/${GroupId}`,
   headers: {
     authorization: TOKEN,
     "Content-Type": "application/json"
@@ -31,16 +31,12 @@ const api = new Api({
 
 const initialCards = async () => {
   const cards = await api.getInitialCards()
-  console.log('cards -> ', cards)
-  if (cards) {
-    return cards
-  }
-  return []
+  return cards
 }
 
 
 const cardsInitial = new Section({
-  items: initialCards(),
+  items: await initialCards(),
   renderer: (item) => {
 
     const newCard = new Card(
