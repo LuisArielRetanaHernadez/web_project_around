@@ -1,5 +1,6 @@
 import PopupWithImage from "../components/PopupWithImage.js"
 import PopupWithForm from "../components/PopupWithForm.js"
+import PopupWithConfirm from "../components/PopupWithConfirm.js"
 
 import Section from "../components/Section.js"
 import Card from "../components/Card.js"
@@ -18,7 +19,8 @@ import {
   TOKEN,
   GroupId,
   URL_BASE,
-  buttonEditAvatar
+  buttonEditAvatar,
+  buttonDeleteCard
 } from "../constants/constants.js"
 import Api from "../components/Api.js"
 
@@ -47,10 +49,20 @@ const cardsInitial = new Section({
       },
       '#template-card',
       (name, link) => {
-        console.log(name, link)
         const popupImage = new PopupWithImage('.popup--imagen-card')
         popupImage.setEventListeners()
         popupImage.open(name, link)
+      },
+      async () => {
+        const popupConfirm = new PopupWithConfirm('.popup--delete-card', async () => {
+          const card = await api.deleteCard(item._id)
+          if (card) {
+            newCard._deleteCard()
+          }
+          popupConfirm.close()
+        })
+        popupConfirm.setEventListeners()
+        popupConfirm.open()
       })
 
     const cardElement = newCard.createCard()
@@ -71,11 +83,21 @@ const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) 
   console.log('new card ', card)
 
   if (card) {
-    const newCard = new Card({ title, url }, '#template-card', (name, link) => {
-      const popupImage = new PopupWithImage('.popup--imagen-card')
-      popupImage.setEventListeners()
-      popupImage.open(name, link)
-    })
+    const newCard = new Card({ title, url }, '#template-card',
+      (name, link) => {
+        const popupImage = new PopupWithImage('.popup--imagen-card')
+        popupImage.setEventListeners()
+        popupImage.open(name, link)
+      }, async () => {
+        const popupConfirm = new PopupWithConfirm('.popup--delete-card', async () => {
+          const cardDelete = await api.deleteCard(card._id)
+          if (cardDelete) {
+            newCard._deleteCard()
+          }
+        })
+        popupConfirm.setEventListeners()
+        popupConfirm.open()
+      })
 
     const cardElement = newCard.createCard()
 
