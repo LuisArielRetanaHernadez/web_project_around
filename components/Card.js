@@ -22,9 +22,10 @@ export default class Card {
   createCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
-
+    console.log(this._likes.length);
     this._element.querySelector('.card__title').textContent = this._title;
     this._element.querySelector('.card__image').setAttribute('src', this._url);
+    this._element.querySelector('.card__likes-count').textContent = this.getLikes(this._likes);
 
     return this._element;
   }

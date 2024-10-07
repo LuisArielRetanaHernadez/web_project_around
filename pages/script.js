@@ -49,6 +49,7 @@ const cardsInitial = new Section({
         title: item.name,
         url: item.link,
         _id: item._id,
+        likes: item.likes
       },
       '#template-card',
       (name, link) => {
@@ -78,8 +79,10 @@ const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) 
 
   const card = await api.createCard(title, url);
 
+  console.log('card -> ', card)
+
   if (card?._id) {
-    const newCard = new Card({ title, url, _id: card._id },
+    const newCard = new Card({ title, url, _id: card._id, likes: card.likes },
       '#template-card',
       (name, link) => {
         const popupImage = new PopupWithImage('.popup--imagen-card');
