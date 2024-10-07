@@ -100,3 +100,17 @@
 .card:hover .card__icon-delete {
   display: inline-block;
 }
+
+.card__content-icon-and-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 1px;
+}
+
+.card__likes-count {
+  font-size: 16px;
+  position: relative;
+}

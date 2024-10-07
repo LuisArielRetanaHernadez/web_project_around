@@ -78,23 +78,26 @@
               </div>
               <figcaption class="card__about elements__photo-about">
                 <p class="card__title"></p>
-                <span class="icon card__icon-love">
-                  <img
-                    class="card__icon-love-image card__icon-love-image_standar"
-                    src="<%= require('./images/heart.svg')%>"
-                    alt="icon love"
-                  />
-                  <img
-                    class="card__icon-love-image card__icon-love-image_hover"
-                    src="<%= require('./images/heart-hover.svg')%>"
-                    alt="icon love hover"
-                  />
-                  <img
-                    class="card__icon-love-image card__icon-love-image_active"
-                    src="<%= require('./images/heart-active.svg')%>"
-                    alt="icon love active"
-                  />
-                </span>
+                <div class="card__content-icon-and-likes">
+                  <span class="icon card__icon-love">
+                    <img
+                      class="card__icon-love-image card__icon-love-image_standar"
+                      src="<%= require('./images/heart.svg')%>"
+                      alt="icon love"
+                    />
+                    <img
+                      class="card__icon-love-image card__icon-love-image_hover"
+                      src="<%= require('./images/heart-hover.svg')%>"
+                      alt="icon love hover"
+                    />
+                    <img
+                      class="card__icon-love-image card__icon-love-image_active"
+                      src="<%= require('./images/heart-active.svg')%>"
+                      alt="icon love active"
+                    />
+                  </span>
+                  <span class="card__likes-count"></span>
+                </div>
               </figcaption>
             </figure>
           </template>
