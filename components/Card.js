@@ -38,7 +38,10 @@ export default class Card {
     });
 
     this._element.querySelector('.card__icon-delete').addEventListener('click', () => {
-      this._handleCardDelete()
+      console.log(this._id);
+      this._handleCardDelete(this._id, () => {
+        this._deleteCard();
+      })
     });
 
   }
