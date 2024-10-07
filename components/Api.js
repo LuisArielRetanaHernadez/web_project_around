@@ -10,7 +10,6 @@ export default class Api {
       headers: this._headers
     });
     if (res.ok) {
-      console.log(res);
       return res.json();
     }
     return await Promise.reject(`Error: ${res.status}`);

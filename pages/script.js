@@ -79,8 +79,6 @@ const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) 
 
   const card = await api.createCard(title, url);
 
-  console.log('card -> ', card)
-
   if (card?._id) {
     const newCard = new Card({ title, url, _id: card._id, likes: card.likes },
       '#template-card',
@@ -120,7 +118,6 @@ buttonNewCard.addEventListener('click', () => {
 
 const initialUser = async () => {
   const user = await api.getUserInfo()
-  console.log('initial user -> ', user)
   return user
 }
 
