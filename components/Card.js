@@ -1,8 +1,9 @@
 export default class Card {
-  constructor({ title, url, _id }, selectorElement, handleCardClick, handleCardDelete) {
+  constructor({ title, url, _id, likes }, selectorElement, handleCardClick, handleCardDelete) {
     this._title = title;
     this._url = url;
     this._id = _id;
+    this._likes = likes
     this._selectorElement = selectorElement
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
@@ -48,6 +49,15 @@ export default class Card {
 
   _likeCard() {
     this._element.querySelector('.card__icon-love').classList.toggle('card__icon-love_active')
+  }
+
+  getLikes() {
+    return this._likes.length;
+  }
+
+  setLikes(likes) {
+    this._likes = likes;
+    this._element.querySelector('.card__like-count').textContent = this.getLikes();
   }
 
   _deleteCard() {
