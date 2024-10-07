@@ -16,9 +16,8 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    super.close()
-    console.log('form popup ', this._popup.querySelector('.popup__form'))
     this._popup.querySelector('.popup__form').reset();
+    super.close()
   }
 
   setEventListeners() {
