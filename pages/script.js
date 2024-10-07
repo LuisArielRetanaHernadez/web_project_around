@@ -37,78 +37,74 @@ const initialCards = async () => {
   return cards
 }
 
+const popupWithConfirm = new PopupWithConfirm('.popup--delete-card');
+popupWithConfirm.setEventListeners();
+
 
 const cardsInitial = new Section({
   items: await initialCards(),
   renderer: (item) => {
-
     const newCard = new Card(
       {
         title: item.name,
-        url: item.link
+        url: item.link,
+        _id: item._id,
       },
       '#template-card',
       (name, link) => {
-        const popupImage = new PopupWithImage('.popup--imagen-card')
-        popupImage.setEventListeners()
-        popupImage.open(name, link)
+        const popupImage = new PopupWithImage('.popup--imagen-card');
+        popupImage.setEventListeners();
+        popupImage.open(name, link);
       },
-      async () => {
-        const popupConfirm = new PopupWithConfirm('.popup--delete-card', async () => {
-          const card = await api.deleteCard(item._id)
+      (id, callback) => {
+        popupWithConfirm.open(id, async () => {
+          const card = await api.deleteCard(id);
           if (card) {
-            newCard._deleteCard()
+            callback();
           }
-          popupConfirm.close()
-        })
-        popupConfirm.setEventListeners()
-        popupConfirm.open()
-      })
+        });
+      }
+    );
 
-    const cardElement = newCard.createCard()
-    cardsInitial.addItem(cardElement)
+    const cardElement = newCard.createCard();
+    cardsInitial.addItem(cardElement);
   }
-}, '.elements__cards')
+}, '.elements__cards');
 
-cardsInitial.renderer()
-// const newCard = new Card(card.name, card.link, '#template-photo')
-// const cardElement = newCard.createCard()
-// cards.appendChild(cardElement)
+cardsInitial.renderer();
 
 const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) => {
-  const { title, url } = valuesCard
+  const { title, url } = valuesCard;
 
-  const card = await api.createCard(title, url)
+  const card = await api.createCard(title, url);
 
-  console.log('new card ', card)
-
-  if (card) {
-    const newCard = new Card({ title, url }, '#template-card',
+  if (card?._id) {
+    const newCard = new Card({ title, url, _id: card._id },
+      '#template-card',
       (name, link) => {
-        const popupImage = new PopupWithImage('.popup--imagen-card')
-        popupImage.setEventListeners()
-        popupImage.open(name, link)
-      }, async () => {
-        const popupConfirm = new PopupWithConfirm('.popup--delete-card', async () => {
-          const cardDelete = await api.deleteCard(card._id)
-          if (cardDelete) {
-            newCard._deleteCard()
+        const popupImage = new PopupWithImage('.popup--imagen-card');
+        popupImage.setEventListeners();
+        popupImage.open(name, link);
+      },
+      (id, callback) => {
+        popupWithConfirm.open(id, async () => {
+          const card = await api.deleteCard(id);
+          if (card) {
+            callback();
           }
-        })
-        popupConfirm.setEventListeners()
-        popupConfirm.open()
-      })
+        });
+      }
+    );
 
-    const cardElement = newCard.createCard()
-
-    cardsInitial.addItem(cardElement)
+    const cardElement = newCard.createCard();
+    cardsInitial.addItem(cardElement);
   }
+});
 
-})
+formNewCard.setEventListeners();
 
 buttonNewCard.addEventListener('click', () => {
-  formNewCard.open()
-  formNewCard.setEventListeners()
+  formNewCard.open();
   new FormValidator({
     formSelector: '.form',
     inputSelector: '.form__input',
@@ -116,8 +112,8 @@ buttonNewCard.addEventListener('click', () => {
     inactiveButtonClass: 'form__button-submit_disabled',
     inputErrorClass: 'form__input_type_error',
     errorClass: '.form__error_visible'
-  }, formNewCard._popup).enableValidation()
-})
+  }, formNewCard._popup).enableValidation();
+});
 
 const initialUser = async () => {
   const user = await api.getUserInfo()
