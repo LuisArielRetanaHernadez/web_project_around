@@ -44,12 +44,14 @@ popupWithConfirm.setEventListeners();
 const cardsInitial = new Section({
   items: await initialCards(),
   renderer: (item) => {
+    console.log(item);
     const newCard = new Card(
       {
         title: item.name,
         url: item.link,
         _id: item._id,
-        likes: item.likes
+        likes: item.likes,
+        islike: item.likes.some((like) => like._id === "88dd2732475600717adbae4c")
       },
       '#template-card',
       (name, link) => {
@@ -64,6 +66,24 @@ const cardsInitial = new Section({
             callback();
           }
         });
+      },
+      (id, callback) => {
+        api.likeCard(id)
+          .then((card) => {
+            callback(card.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+      (id, callback) => {
+        api.likeCardDelete(id)
+          .then((card) => {
+            callback(card.likes);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     );
 
