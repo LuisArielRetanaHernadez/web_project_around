@@ -31,44 +31,43 @@ export default class Api {
   }
 
   async deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    const res = await fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+
+    if (res.ok) {
+      return res.json();
+    }
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
   // likes card
 
   async likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    const res = await fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+
+    if (res.ok) {
+      return res.json();
+    }
+
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
   async likeCardDelete(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    const res = await fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
+    });
+
+    if (res.ok) {
+      return res.json();
+    }
+
+    return await Promise.reject(`Error: ${res.status}`);
   }
 
   // users
