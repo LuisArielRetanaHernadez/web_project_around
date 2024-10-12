@@ -32,6 +32,17 @@ const api = new Api({
   }
 })
 
+const initialUser = async () => {
+  const user = await api.getUserInfo()
+  return user
+}
+
+const user = await initialUser()
+const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
+
+userInfo.setUserInfo({ name: user.name, job: user.about })
+userInfo.setAvatar(user.avatar)
+
 const initialCards = async () => {
   const cards = await api.getInitialCards()
   return cards
@@ -44,7 +55,9 @@ popupWithConfirm.setEventListeners();
 const cardsInitial = new Section({
   items: await initialCards(),
   renderer: (item) => {
-    console.log(item);
+    if (item.owner._id !== "88dd2732475600717adbae4c") {
+      return;
+    }
     const newCard = new Card(
       {
         title: item.name,
@@ -135,17 +148,6 @@ buttonNewCard.addEventListener('click', () => {
     errorClass: '.form__error_visible'
   }, formNewCard._popup).enableValidation();
 });
-
-const initialUser = async () => {
-  const user = await api.getUserInfo()
-  return user
-}
-
-const user = await initialUser()
-const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
-
-userInfo.setUserInfo({ name: user.name, job: user.about })
-userInfo.setAvatar(user.avatar)
 
 const formUpdateProfile = new PopupWithForm('.popup--update-profile', async (valuesUpdate) => {
   const { name, state } = valuesUpdate
