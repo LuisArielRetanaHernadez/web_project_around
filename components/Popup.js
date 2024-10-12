@@ -29,4 +29,13 @@ export default class Popup {
 
     document.addEventListener("keydown", this._handleEscClose);
   }
+
+  loading(isLoading = false) {
+    console.log('is Loading ', isLoading)
+    if (isLoading) {
+      this._popup.querySelector('.popup__button-submit').textContent = 'cargando...';
+    } else {
+      this._popup.querySelector('.popup__button-submit').textContent = 'Guardar yaya';
+    }
+  }
 }

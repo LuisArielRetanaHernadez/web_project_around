@@ -113,7 +113,13 @@ const formNewCard = new PopupWithForm('.popup--create-card', async (valuesCard) 
   const card = await api.createCard(title, url);
 
   if (card?._id) {
-    const newCard = new Card({ title, url, _id: card._id, likes: card.likes },
+    const newCard = new Card({
+      title,
+      url,
+      _id: card._id,
+      likes: card.likes,
+      islike: card.likes.some((like) => like._id === "88dd2732475600717adbae4c")
+    },
       '#template-card',
       (name, link) => {
         const popupImage = new PopupWithImage('.popup--imagen-card');
@@ -176,24 +182,36 @@ buttonEditProfile.addEventListener('click', () => {
 
 })
 
-buttonEditAvatar.addEventListener('click', () => {
-  const formUpdateAvatar = new PopupWithForm('.popup--upload-avatar-user-me', async (valuesAvatar) => {
-    const { avatar } = valuesAvatar
-    const user = await api.updateAvatarUser(avatar)
-    if (user) {
-      const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
-      userInfo.setAvatar(user.avatar)
-    }
-  })
-  formUpdateAvatar.open()
-  formUpdateAvatar.setEventListeners()
-  new FormValidator({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__button-submit',
-    inactiveButtonClass: 'form__button-submit_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: '.form__error_visible'
-  }, formUpdateAvatar._popup).enableValidation()
+
+
+const formUpdateAvatar = new PopupWithForm('.popup--upload-avatar-user-me', async (valuesAvatar) => {
+
+  const { avatar } = valuesAvatar
+  console.log(avatar)
+  formUpdateAvatar.loading(true)
+  const user = await api.updateAvatarUser(avatar)
+  console.log('update imagen user ', user)
+  if (user._id) {
+    const userInfo = new UserInfo({ nameSelector: '.profile__name', jobSelector: '.profile__state', avatarSelector: '.profile__image' })
+    userInfo.setAvatar(user.avatar)
+    console.log('update full loading ', user._id)
+    formUpdateAvatar.loading(false)
+    formUpdateAvatar.close()
+
+  }
 })
 
+new FormValidator({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button-submit',
+  inactiveButtonClass: 'form__button-submit_disabled',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: '.form__error_visible'
+}, formUpdateAvatar._popup).enableValidation()
+
+formUpdateAvatar.setEventListeners()
+
+buttonEditAvatar.addEventListener('click', () => {
+  formUpdateAvatar.open()
+})
